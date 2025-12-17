@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Виртуальный музей искусства - онлайн-пространство для знакомства с шедеврами мирового искусства">
+    <title>Главная | Виртуальный музей искусства</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Контейнер для всей страницы -->
+    <div id="page-container">
+        
+        <!-- Шапка сайта -->
+        <header id="main-header">
+            <div class="header-content">
+                <h1>Виртуальный музей искусства</h1>
+                <p class="tagline">Искусство вне времени и пространства</p>
+            </div>
+        </header>
+
+        <!-- Главное навигационное меню -->
+        <nav id="main-nav">
+            <ul>
+                <li><a href="main.html" class="active">Главная</a></li>
+                <li><a href="about.html">О музее</a></li>
+                <li><a href="collections.html">Коллекции</a></li>
+                <li><a href="exhibitions.html">Выставки</a></li>
+                <li><a href="visit.html">Посетителям</a></li>
+                <li><a href="education.html">Образовательные программы</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <!-- Основное содержимое -->
+        <main id="main-content">
+            
+            <!-- Боковая панель -->
+            <aside id="sidebar">
+                <section class="sidebar-widget">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 10:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 22:00</p>
+                    <p><em>Без выходных</em></p>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Новости</h3>
+                    <p><strong>15.05.2024</strong><br>
+                    Открывается новая выставка "Импрессионисты"</p>
+                    <p><strong>10.05.2024</strong><br>
+                    Лекция об искусстве Возрождения</p>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#virtual-tour">Виртуальный тур</a></li>
+                        <li><a href="#current-exhibitions">Текущие выставки</a></li>
+                        <li><a href="#collections-highlight">Шедевры коллекции</a></li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Основной контент-блок -->
+            <div class="content-wrapper">
+                <section class="hero-section">
+                    <h2>Добро пожаловать в мир искусства</h2>
+                    <p>Откройте для себя бесценные коллекции произведений искусства со всего мира, не выходя из дома.</p>
+                    <a href="collections.html" class="cta-button">Исследовать коллекции</a>
+                </section>
+
+                <section id="current-exhibitions" class="content-section">
+                    <h2>Текущие выставки</h2>
+                    <article class="exhibition-card">
+                        <h3>Импрессионизм: игра света</h3>
+                        <p><strong>Даты:</strong> 15 мая - 15 августа 2024</p>
+                        <p>Уникальная коллекция работ Моне, Ренуара, Дега и других мастеров импрессионизма.</p>
+                        <a href="exhibitions.html#impressionism" class="read-more">Подробнее →</a>
+                    </article>
+                    
+                    <article class="exhibition-card">
+                        <h3>Сокровища Древнего Египта</h3>
+                        <p><strong>Даты:</strong> 1 апреля - 30 июня 2024</p>
+                        <p>Более 200 артефактов из гробниц фараонов, включая золотые украшения и саркофаги.</p>
+                        <a href="exhibitions.html#egypt" class="read-more">Подробнее →</a>
+                    </article>
+                </section>
+
+                <section id="virtual-tour" class="content-section">
+                    <h2>Виртуальный тур</h2>
+                    <p>Погрузитесь в атмосферу нашего музея с помощью интерактивного тура:</p>
+                    
+                    <!-- Видео элемент HTML5 -->
+                    <div class="video-container">
+                        <video width="100%" controls poster="https://via.placeholder.com/800x450/cccccc/666666?text=Превью+видео+тура">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео тег.
+                        </video>
+                        <p class="video-caption">Видео-тур по главному залу музея. <em>Для просмотра включите звук.</em></p>
+                    </div>
+                </section>
+
+                <section id="collections-highlight" class="content-section">
+                    <h2>Шедевры нашей коллекции</h2>
+                    <div class="collection-highlights">
+                        <div class="artwork">
+                            <h4>«Звездная ночь»</h4>
+                            <p>Винсент Ван Гог, 1889</p>
+                            <p><i>Масло, холст. Постимпрессионизм.</i></p>
+                        </div>
+                        <div class="artwork">
+                            <h4>«Мона Лиза»</h4>
+                            <p>Леонардо да Винчи, 1503–1506</p>
+                            <p><i>Масло, тополиная доска. Возрождение.</i></p>
+                        </div>
+                        <div class="artwork">
+                            <h4>«Танец»</h4>
+                            <p>Анри Матисс, 1910</p>
+                            <p><i>Масло, холст. Фовизм.</i></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Аудио элемент HTML5 -->
+                <section class="content-section audio-section">
+                    <h2>Аудиогид</h2>
+                    <p>Прослушайте фрагмент аудиогида по выставке импрессионистов:</p>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Ваш браузер не поддерживает аудио элемент.
+                    </audio>
+                    <p class="audio-description"><b>Диктор:</b> Анна Иванова. <u>Длительность:</u> 2 мин 30 сек.</p>
+                </section>
+            </div>
+        </main>
+
+        <!-- Подвал сайта -->
+        <footer id="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>г. Москва, ул. Музейная, д. 1</p>
+                    <p>Email: info@virtualartmuseum.ru</p>
+                    <p>Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрая навигация</h4>
+                    <ul>
+                        <li><a href="main.html">Главная</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="exhibitions.html">Выставки</a></li>
+                        <li><a href="visit.html">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">YouTube</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                <p>Сайт создан в учебных целях для лабораторной работы по HTML5 и CSS3.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

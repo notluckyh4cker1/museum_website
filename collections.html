@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Коллекции Виртуального музея искусства">
+    <title>Коллекции | Виртуальный музей искусства</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="header-content">
+                <h1>Виртуальный музей искусства</h1>
+                <p class="tagline">Искусство вне времени и пространства</p>
+            </div>
+        </header>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li><a href="about.html">О музее</a></li>
+                <li><a href="collections.html" class="active">Коллекции</a></li>
+                <li><a href="exhibitions.html">Выставки</a></li>
+                <li><a href="visit.html">Посетителям</a></li>
+                <li><a href="education.html">Образовательные программы</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <aside id="sidebar">
+                <section class="sidebar-widget">
+                    <h3>Поиск по коллекциям</h3>
+                    <input type="text" placeholder="Название, автор, период..." style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;">
+                    <button style="width: 100%; padding: 0.5rem; background: #3498db; color: white; border: none; border-radius: 4px;">Найти</button>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Периоды</h3>
+                    <ul>
+                        <li><a href="#renaissance">Возрождение</a></li>
+                        <li><a href="#baroque">Барокко</a></li>
+                        <li><a href="#impressionism">Импрессионизм</a></li>
+                        <li><a href="#modern">Модернизм</a></li>
+                        <li><a href="#contemporary">Современное искусство</a></li>
+                    </ul>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Коллекция цифр</h3>
+                    <p><strong>10,000+</strong> произведений</p>
+                    <p><strong>500+</strong> художников</p>
+                    <p><strong>50+</strong> стран</p>
+                    <p><strong>2,000+</strong> лет истории</p>
+                </section>
+            </aside>
+
+            <div class="content-wrapper">
+                <section class="content-section">
+                    <h2>Наши коллекции</h2>
+                    <p>Исследуйте богатейшее собрание произведений искусства от древности до современности.</p>
+                    
+                    <article id="renaissance" class="collection-category">
+                        <h3>Эпоха Возрождения (XIV-XVII вв.)</h3>
+                        <p><strong>Ключевые художники:</strong> Леонардо да Винчи, Рафаэль, Микеланджело, Тициан</p>
+                        
+                        <div class="artwork-gallery">
+                            <div class="gallery-item">
+                                <h4>Мона Лиза</h4>
+                                <p><em>Леонардо да Винчи, 1503-1506</em></p>
+                                <p>Портрет Лизы дель Джокондо, самый известный портрет в истории искусства.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <h4>Сикстинская Мадонна</h4>
+                                <p><em>Рафаэль, 1512-1513</em></p>
+                                <p>Алтарный образ для церкви монастыря святого Сикста в Пьяченце.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <h4>Давид</h4>
+                                <p><em>Микеланджело, 1501-1504</em></p>
+                                <p>Мраморная статуя библейского героя Давида, символ Флорентийской республики.</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article id="impressionism" class="collection-category">
+                        <h3>Импрессионизм (XIX век)</h3>
+                        <p><strong>Ключевые художники:</strong> Клод Моне, Эдгар Дега, Пьер-Огюст Ренуар, Винсент Ван Гог</p>
+                        
+                        <div class="artwork-gallery">
+                            <div class="gallery-item">
+                                <h4>Впечатление. Восходящее солнце</h4>
+                                <p><em>Клод Моне, 1872</em></p>
+                                <p>Картина, давшая название всему направлению импрессионизма.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <h4>Звёздная ночь</h4>
+                                <p><em>Винсент Ван Гог, 1889</em></p>
+                                <p>Одно из самых узнаваемых произведений западного искусства.</p>
+                            </div>
+                            <div class="gallery-item">
+                                <h4>Танец в Мулен де ла Галетт</h4>
+                                <p><em>Пьер-Огюст Ренуар, 1876</em></p>
+                                <p>Жизнерадостная сцена из жизни парижского монмартрского кафе.</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article id="modern" class="collection-category">
+                        <h3>Модернизм (XX век)</h3>
+                        <p><strong>Ключевые художники:</strong> Пабло Пикассо, Сальвадор Дали, Анри Матисс, Василий Кандинский</p>
+                        
+                        <!-- Таблица в коллекциях -->
+                        <table class="info-table">
+                            <caption>Основные направления модернизма</caption>
+                            <thead>
+                                <tr>
+                                    <th>Направление</th>
+                                    <th>Период</th>
+                                    <th>Характеристики</th>
+                                    <th>Представители</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Кубизм</td>
+                                    <td>1907-1914</td>
+                                    <td>Разложение формы на геометрические плоскости</td>
+                                    <td>Пикассо, Брак</td>
+                                </tr>
+                                <tr>
+                                    <td>Сюрреализм</td>
+                                    <td>1920-е</td>
+                                    <td>Иррациональные образы, подсознательное</td>
+                                    <td>Дали, Магритт</td>
+                                </tr>
+                                <tr>
+                                    <td>Абстракционизм</td>
+                                    <td>1910-е</td>
+                                    <td>Отказ от изображения реальности</td>
+                                    <td>Кандинский, Мондриан</td>
+                                </tr>
+                                <tr>
+                                    <td>Фовизм</td>
+                                    <td>1905-1908</td>
+                                    <td>Яркие цвета, экспрессивность</td>
+                                    <td>Матисс, Дерен</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                    
+                    <article class="collection-category">
+                        <h3>Особые коллекции</h3>
+                        <ul>
+                            <li><b>Искусство Древнего мира</b> - Египет, Греция, Рим</li>
+                            <li><b>Восточное искусство</b> - Китай, Япония, Индия</li>
+                            <li><b>Русское искусство</b> - Иконы, передвижники, авангард</li>
+                            <li><b>Декоративно-прикладное искусство</b> - Фарфор, мебель, ткани</li>
+                            <li><b>Фотография</b> - С XIX века до современности</li>
+                        </ul>
+                        
+                        <p>Каждое произведение сопровождается <u>подробным описанием</u>, <u>историческим контекстом</u> и <u>техническими данными</u>.</p>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <footer id="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>г. Москва, ул. Музейная, д. 1</p>
+                    <p>Email: info@virtualartmuseum.ru</p>
+                    <p>Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрая навигация</h4>
+                    <ul>
+                        <li><a href="main.html">Главная</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="exhibitions.html">Выставки</a></li>
+                        <li><a href="visit.html">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">YouTube</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                <p>Сайт создан в учебных целях для лабораторной работы по HTML5 и CSS3.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

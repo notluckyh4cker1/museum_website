@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контакты Виртуального музея искусства">
+    <title>Контакты | Виртуальный музей искусства</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="header-content">
+                <h1>Виртуальный музей искусства</h1>
+                <p class="tagline">Искусство вне времени и пространства</p>
+            </div>
+        </header>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li><a href="about.html">О музее</a></li>
+                <li><a href="collections.html">Коллекции</a></li>
+                <li><a href="exhibitions.html">Выставки</a></li>
+                <li><a href="visit.html">Посетителям</a></li>
+                <li><a href="education.html">Образовательные программы</a></li>
+                <li><a href="contacts.html" class="active">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <aside id="sidebar">
+                <section class="sidebar-widget">
+                    <h3>Экстренные контакты</h3>
+                    <p><strong>Техническая поддержка:</strong><br>
+                    support@virtualartmuseum.ru</p>
+                    <p><strong>Телефон:</strong><br>
+                    +7 (495) 123-45-68</p>
+                    <p><strong>Часы работы поддержки:</strong><br>
+                    Круглосуточно</p>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Отдел кадров</h3>
+                    <p>Для соискателей:<br>
+                    hr@virtualartmuseum.ru</p>
+                    <p>Вакансии для:<br>
+                    - Искусствоведов<br>
+                    - Веб-разработчиков<br>
+                    - Контент-менеджеров</p>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Быстрый ответ</h3>
+                    <p>Обычно мы отвечаем в течение <strong>24 часов</strong> в рабочие дни.</p>
+                    <p>Для срочных вопросов звоните по телефону.</p>
+                </section>
+            </aside>
+
+            <div class="content-wrapper">
+                <section class="content-section">
+                    <h2>Свяжитесь с нами</h2>
+                    
+                    <div class="contact-info-grid">
+                        <div class="contact-card">
+                            <h3>Основные контакты</h3>
+                            <p><strong>Адрес:</strong><br>
+                            г. Москва, ул. Музейная, д. 1<br>
+                            <em>(для корреспонденции)</em></p>
+                            
+                            <p><strong>Телефон:</strong><br>
+                            +7 (495) 123-45-67</p>
+                            
+                            <p><strong>Email:</strong><br>
+                            info@virtualartmuseum.ru</p>
+                            
+                            <p><strong>Пресс-служба:</strong><br>
+                            press@virtualartmuseum.ru</p>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h3>Отделы музея</h3>
+                            <ul>
+                                <li><b>Экскурсионный отдел:</b> tours@virtualartmuseum.ru</li>
+                                <li><b>Образовательные программы:</b> education@virtualartmuseum.ru</li>
+                                <li><b>Выставочный отдел:</b> exhibitions@virtualartmuseum.ru</li>
+                                <li><b>Партнерство:</b> partnership@virtualartmuseum.ru</li>
+                                <li><b>Волонтеры:</b> volunteers@virtualartmuseum.ru</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <article class="content-section">
+                        <h3>Форма обратной связи</h3>
+                        <p>Заполните форму ниже, и мы ответим вам в ближайшее время:</p>
+                        
+                        <form class="contact-form" action="#" method="post">
+                            <div class="form-group">
+                                <label for="contact-name">Ваше имя *</label>
+                                <input type="text" id="contact-name" name="contact-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email">Email *</label>
+                                <input type="email" id="contact-email" name="contact-email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-phone">Телефон</label>
+                                <input type="tel" id="contact-phone" name="contact-phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-topic">Тема обращения *</label>
+                                <select id="contact-topic" name="contact-topic" required>
+                                    <option value="">Выберите тему...</option>
+                                    <option value="general">Общий вопрос</option>
+                                    <option value="technical">Техническая проблема</option>
+                                    <option value="excursion">Запись на экскурсию</option>
+                                    <option value="education">Образовательные программы</option>
+                                    <option value="partnership">Сотрудничество</option>
+                                    <option value="feedback">Отзыв о музее</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Сообщение *</label>
+                                <textarea id="contact-message" name="contact-message" rows="6" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="newsletter" checked>
+                                    Подписаться на новости музея
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Отправить сообщение</button>
+                        </form>
+                    </article>
+                    
+                    <article class="content-section">
+                        <h3>Как добраться</h3>
+                        <p>Для офлайн-мероприятий и встреч:</p>
+                        
+                        <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+                            <h4>Общественный транспорт</h4>
+                            <ul>
+                                <li><b>Метро:</b> Станция "Культурная" (красная ветка), выход №4</li>
+                                <li><b>Автобусы:</b> № 144, 256, 333 (остановка "Художественный музей")</li>
+                                <li><b>Трамвай:</b> № 3, 7 (остановка "Площадь Искусств")</li>
+                                <li><b>Такси:</b> Указать адрес: ул. Музейная, д. 1</li>
+                            </ul>
+                            
+                            <h4>На автомобиле</h4>
+                            <p>Бесплатная парковка на 50 мест. Въезд с ул. Картинной.</p>
+                        </div>
+                        
+                        <!-- Изображение-карта -->
+                        <div style="text-align: center; margin: 2rem 0;">
+                            <img src="https://via.placeholder.com/800x400/bbdefb/1976d2?text=Карта+расположения+музея" 
+                                 alt="Карта расположения музея" 
+                                 width="100%"
+                                 style="max-width: 800px; border-radius: 8px; border: 2px solid #1976d2;">
+                            <p><i>Музей находится в культурном квартале города</i></p>
+                        </div>
+                    </article>
+                    
+                    <article class="content-section">
+                        <h3>Социальные сети</h3>
+                        <p>Подпишитесь на наши социальные сети, чтобы быть в курсе новостей:</p>
+                        
+                        <!-- Таблица социальных сетей -->
+                        <table class="info-table">
+                            <caption>Мы в социальных сетях</caption>
+                            <thead>
+                                <tr>
+                                    <th>Платформа</th>
+                                    <th>Ссылка</th>
+                                    <th>Контент</th>
+                                    <th>Активность</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Facebook</b></td>
+                                    <td><a href="#">facebook.com/virtualartmuseum</a></td>
+                                    <td>Новости, статьи, обсуждения</td>
+                                    <td>Ежедневно</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Instagram</b></td>
+                                    <td><a href="#">@virtualartmuseum</a></td>
+                                    <td>Фото, stories, короткие видео</td>
+                                    <td>2-3 раза в день</td>
+                                </tr>
+                                <tr>
+                                    <td><b>YouTube</b></td>
+                                    <td><a href="#">youtube.com/virtualartmuseum</a></td>
+                                    <td>Экскурсии, лекции, документальные фильмы</td>
+                                    <td>Еженедельно</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Telegram</b></td>
+                                    <td><a href="#">t.me/virtualartmuseum</a></td>
+                                    <td>Анонсы, короткие материалы</td>
+                                    <td>Ежедневно</td>
+                                </tr>
+                                <tr>
+                                    <td><b>VK</b></td>
+                                    <td><a href="#">vk.com/virtualartmuseum</a></td>
+                                    <td>События, конкурсы, сообщество</td>
+                                    <td>Ежедневно</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                    
+                    <article class="content-section">
+                        <h3>Реквизиты организации</h3>
+                        <p>Для юридических лиц и официальной переписки:</p>
+                        
+                        <div style="background: #fff8e1; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ffb300;">
+                            <p><strong>Полное наименование:</strong><br>
+                            Автономная некоммерческая организация "Виртуальный музей искусства"</p>
+                            
+                            <p><strong>Юридический адрес:</strong><br>
+                            123456, г. Москва, ул. Музейная, д. 1</p>
+                            
+                            <p><strong>ИНН:</strong> 1234567890<br>
+                            <strong>КПП:</strong> 123456789<br>
+                            <strong>ОГРН:</strong> 1234567890123</p>
+                            
+                            <p><strong>Банковские реквизиты:</strong><br>
+                            АО "Банк", БИК 044525xxx, к/с 301018100000000002xx, р/с 40702810000000000001</p>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <footer id="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>г. Москва, ул. Музейная, д. 1</p>
+                    <p>Email: info@virtualartmuseum.ru</p>
+                    <p>Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрая навигация</h4>
+                    <ul>
+                        <li><a href="main.html">Главная</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="exhibitions.html">Выставки</a></li>
+                        <li><a href="visit.html">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">YouTube</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                <p>Сайт создан в учебных целях для лабораторной работы по HTML5 и CSS3.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

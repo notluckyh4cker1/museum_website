@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация для посетителей Виртуального музея искусства">
+    <title>Посетителям | Виртуальный музей искусства</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="header-content">
+                <h1>Виртуальный музей искусства</h1>
+                <p class="tagline">Искусство вне времени и пространства</p>
+            </div>
+        </header>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li><a href="about.html">О музее</a></li>
+                <li><a href="collections.html">Коллекции</a></li>
+                <li><a href="exhibitions.html">Выставки</a></li>
+                <li><a href="visit.html" class="active">Посетителям</a></li>
+                <li><a href="education.html">Образовательные программы</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <aside id="sidebar">
+                <section class="sidebar-widget">
+                    <h3>Советы посетителям</h3>
+                    <ul>
+                        <li>Планируйте 2-3 часа на визит</li>
+                        <li>Используйте аудиогид</li>
+                        <li>Посещайте утренние часы</li>
+                        <li>Берите наушники</li>
+                    </ul>
+                </section>
+                
+                <section class="sidebar-widget">
+                    <h3>Доступная среда</h3>
+                    <p>Все туры адаптированы для людей с ограниченными возможностями здоровья. Есть версии с сурдопереводом.</p>
+                </section>
+            </aside>
+
+            <div class="content-wrapper">
+                <section class="content-section">
+                    <h2>Информация для посетителей</h2>
+                    
+                    <article>
+                        <h3>Часы работы</h3>
+                        
+                        <!-- ТАБЛИЦА 1: Расписание работы -->
+                        <table class="info-table">
+                            <thead>
+                                <tr>
+                                    <th>День недели</th>
+                                    <th>Часы работы</th>
+                                    <th>Примечание</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Понедельник - Пятница</td>
+                                    <td>10:00 - 20:00</td>
+                                    <td>Основной режим</td>
+                                </tr>
+                                <tr>
+                                    <td>Суббота</td>
+                                    <td>10:00 - 22:00</td>
+                                    <td>Вечерние экскурсии</td>
+                                </tr>
+                                <tr>
+                                    <td>Воскресенье</td>
+                                    <td>10:00 - 22:00</td>
+                                    <td>Семейные программы</td>
+                                </tr>
+                                <tr>
+                                    <td>Праздничные дни</td>
+                                    <td>10:00 - 18:00</td>
+                                    <td>Специальный график</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                    
+                    <article>
+                        <h3>Стоимость посещения</h3>
+                        <p>Основная коллекция музея доступна <strong>бесплатно</strong>. На некоторые специальные выставки и программы требуется покупка билета.</p>
+                        
+                        <!-- ТАБЛИЦА 2: Цены на билеты -->
+                        <table class="info-table">
+                            <caption>Тарифы на специальные выставки (в рублях)</caption>
+                            <thead>
+                                <tr>
+                                    <th>Категория</th>
+                                    <th>Базовый</th>
+                                    <th>С экскурсией</th>
+                                    <th>Годовой абонемент</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Взрослый</td>
+                                    <td>500 ₽</td>
+                                    <td>800 ₽</td>
+                                    <td>3000 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td>Студенты</td>
+                                    <td>300 ₽</td>
+                                    <td>500 ₽</td>
+                                    <td>1500 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td>Школьники</td>
+                                    <td>200 ₽</td>
+                                    <td>300 ₽</td>
+                                    <td>1000 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td>Пенсионеры</td>
+                                    <td>250 ₽</td>
+                                    <td>400 ₽</td>
+                                    <td>1200 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td>Дети до 7 лет</td>
+                                    <td colspan="3"><em>Бесплатно</em></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"><small>* При онлайн-покупке скидка 10%</small></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </article>
+                    
+                    <article>
+                        <h3>Правила посещения</h3>
+                        <ol>
+                            <li>Регистрация на сайте обязательна для участия в виртуальных турах</li>
+                            <li>Рекомендуется стабильное интернет-соединение (от 10 Мбит/с)</li>
+                            <li>Для VR-туров необходимы совместимые устройства</li>
+                            <li>Запрещена коммерческая съемка без разрешения</li>
+                            <li>Уважайте других посетителей во время групповых туров</li>
+                        </ol>
+                    </article>
+                    
+                    <article>
+                        <h3>Как добраться</h3>
+                        <p>Наш виртуальный музей доступен из любой точки мира. Для офлайн-мероприятий:</p>
+                        <ul>
+                            <li><u>Адрес:</u> г. Москва, ул. Музейная, д. 1</li>
+                            <li><u>Метро:</u> Станция "Культурная" (выход к музеям)</li>
+                            <li><u>Автобусы:</u> № 144, 256, 333 (остановка "Художественный музей")</li>
+                        </ul>
+                        
+                        <!-- Изображение-схема -->
+                        <div style="text-align: center; margin: 20px 0;">
+                            <img src="https://via.placeholder.com/600x300/e3f2fd/1976d2?text=Схема+проезда+к+музею" 
+                                 alt="Схема проезда к музею" 
+                                 width="100%"
+                                 style="max-width: 600px; border-radius: 8px; border: 1px solid #ddd;">
+                            <p><i>Схема расположения музея в культурном квартале</i></p>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <footer id="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>г. Москва, ул. Музейная, д. 1</p>
+                    <p>Email: info@virtualartmuseum.ru</p>
+                    <p>Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрая навигация</h4>
+                    <ul>
+                        <li><a href="main.html">Главная</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="exhibitions.html">Выставки</a></li>
+                        <li><a href="visit.html">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <p>
+                        <a href="#">Facebook</a> | 
+                        <a href="#">Instagram</a> | 
+                        <a href="#">YouTube</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                <p>Сайт создан в учебных целях для лабораторной работы по HTML5 и CSS3.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
