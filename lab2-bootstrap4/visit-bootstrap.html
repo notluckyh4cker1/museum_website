@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация для посетителей Виртуального музея искусства">
+    <title>Посетителям | Виртуальный музей искусства</title>
+    
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/bootstrap-style.css">
+    
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Навигационная панель Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="main-bootstrap.html">
+                <i class="bi bi-palette-fill mr-2"></i>
+                Виртуальный музей искусства
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main-bootstrap.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-bootstrap.html">О музее</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections-bootstrap.html">Коллекции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exhibitions-bootstrap.html">Выставки</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="visit-bootstrap.html">Посетителям</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education-bootstrap.html">Образовательные программы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts-bootstrap.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="container py-5 mt-4">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-light p-3 rounded">
+                <li class="breadcrumb-item"><a href="main-bootstrap.html">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Посетителям</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Боковая панель -->
+            <aside class="col-lg-3 mb-4 mb-lg-0">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-lightbulb-fill mr-2"></i>Советы посетителям</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="bi bi-check-circle text-success mr-2"></i>Планируйте 2-3 часа на визит</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success mr-2"></i>Используйте аудиогид</li>
+                            <li class="mb-2"><i class="bi bi-check-circle text-success mr-2"></i>Посещайте утренние часы</li>
+                            <li><i class="bi bi-check-circle text-success mr-2"></i>Берите наушники</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-universal-access mr-2"></i>Доступная среда</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Все туры адаптированы для людей с ограниченными возможностями здоровья. Есть версии с сурдопереводом.</p>
+                        <div class="text-center">
+                            <i class="bi bi-wheelchair text-success display-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="bi bi-clock-history mr-2"></i>Быстрые часы</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-1"><strong>Пн-Пт:</strong> 10:00 - 20:00</p>
+                        <p class="mb-1"><strong>Сб-Вс:</strong> 10:00 - 22:00</p>
+                        <p class="mb-0 text-success"><strong>Без выходных</strong></p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Основной контент -->
+            <div class="col-lg-9">
+                <header class="mb-5">
+                    <h1 class="font-playfair mb-3">Информация для посетителей</h1>
+                    <p class="lead">Вся необходимая информация для планирования визита в наш виртуальный музей.</p>
+                </header>
+
+                <!-- Часы работы -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-clock text-primary mr-2"></i>Часы работы</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">День недели</th>
+                                    <th scope="col">Часы работы</th>
+                                    <th scope="col">Примечание</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Понедельник - Пятница</strong></td>
+                                    <td>10:00 - 20:00</td>
+                                    <td><span class="badge badge-primary">Основной режим</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Суббота</strong></td>
+                                    <td>10:00 - 22:00</td>
+                                    <td><span class="badge badge-warning">Вечерние экскурсии</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Воскресенье</strong></td>
+                                    <td>10:00 - 22:00</td>
+                                    <td><span class="badge badge-info">Семейные программы</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Праздничные дни</strong></td>
+                                    <td>10:00 - 18:00</td>
+                                    <td><span class="badge badge-success">Специальный график</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Стоимость посещения -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-ticket-perforated text-success mr-2"></i>Стоимость посещения</h2>
+                    
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle-fill mr-2"></i>
+                        Основная коллекция музея доступна <strong>бесплатно</strong>. На некоторые специальные выставки и программы требуется покупка билета.
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <caption class="text-center font-italic">Тарифы на специальные выставки (в рублях)</caption>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Категория</th>
+                                    <th scope="col" class="text-center">Базовый</th>
+                                    <th scope="col" class="text-center">С экскурсией</th>
+                                    <th scope="col" class="text-center">Годовой абонемент</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Взрослый</strong></td>
+                                    <td class="text-center">500 ₽</td>
+                                    <td class="text-center">800 ₽</td>
+                                    <td class="text-center">3000 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Студенты</strong></td>
+                                    <td class="text-center">300 ₽</td>
+                                    <td class="text-center">500 ₽</td>
+                                    <td class="text-center">1500 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Школьники</strong></td>
+                                    <td class="text-center">200 ₽</td>
+                                    <td class="text-center">300 ₽</td>
+                                    <td class="text-center">1000 ₽</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Пенсионеры</strong></td>
+                                    <td class="text-center">250 ₽</td>
+                                    <td class="text-center">400 ₽</td>
+                                    <td class="text-center">1200 ₽</td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td><strong>Дети до 7 лет</strong></td>
+                                    <td colspan="3" class="text-center font-weight-bold text-success">Бесплатно</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="text-center small text-muted">
+                                        <i class="bi bi-percent mr-1"></i> При онлайн-покупке скидка 10%
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    <!-- Кнопки покупки билетов -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-lg mr-3">
+                            <i class="bi bi-cart-check mr-2"></i>Купить билет онлайн
+                        </button>
+                        <button class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-calendar-check mr-2"></i>Забронировать экскурсию
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Правила посещения -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-clipboard-check text-warning mr-2"></i>Правила посещения</h2>
+                    
+                    <div class="card border-warning">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0">Общие правила</h5>
+                        </div>
+                        <div class="card-body">
+                            <ol class="mb-0">
+                                <li class="mb-2">Регистрация на сайте обязательна для участия в виртуальных турах</li>
+                                <li class="mb-2">Рекомендуется стабильное интернет-соединение (от 10 Мбит/с)</li>
+                                <li class="mb-2">Для VR-туров необходимы совместимые устройства</li>
+                                <li class="mb-2">Запрещена коммерческая съемка без разрешения</li>
+                                <li>Уважайте других посетителей во время групповых туров</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Как добраться -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-geo-alt-fill text-danger mr-2"></i>Как добраться</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Для офлайн-мероприятий:</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-geo text-primary mr-2"></i><strong>Адрес:</strong> г. Москва, ул. Музейная, д. 1</li>
+                                        <li class="mb-2"><i class="bi bi-subway text-primary mr-2"></i><strong>Метро:</strong> Станция "Культурная" (выход к музеям)</li>
+                                        <li class="mb-2"><i class="bi bi-bus-front text-primary mr-2"></i><strong>Автобусы:</strong> № 144, 256, 333 (остановка "Художественный музей")</li>
+                                        <li><i class="bi bi-taxi-front text-primary mr-2"></i><strong>Такси:</strong> Указать адрес: ул. Музейная, д. 1</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">Для онлайн-посещения:</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-wifi text-success mr-2"></i><strong>Интернет:</strong> от 10 Мбит/с</li>
+                                        <li class="mb-2"><i class="bi bi-laptop text-success mr-2"></i><strong>Устройства:</strong> ПК, ноутбук, планшет, смартфон</li>
+                                        <li class="mb-2"><i class="bi bi-headphones text-success mr-2"></i><strong>Аудио:</strong> Наушники или колонки</li>
+                                        <li><i class="bi bi-browser-chrome text-success mr-2"></i><strong>Браузер:</strong> Chrome, Firefox, Safari, Edge (последние версии)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Изображение-схема -->
+                    <div class="mt-4 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="https://via.placeholder.com/800x400/e3f2fd/1976d2?text=Схема+проезда+к+музею" 
+                                     alt="Схема проезда к музею" 
+                                     class="img-fluid rounded">
+                                <p class="mt-3 text-muted"><i>Схема расположения музея в культурном квартале</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Accordion Bootstrap -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-question-circle text-info mr-2"></i>Часто задаваемые вопросы</h2>
+                    
+                    <div id="faqAccordion">
+                        <div class="card mb-2">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
+                                        Нужно ли регистрироваться для посещения?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Да, регистрация обязательна для участия в виртуальных турах и некоторых выставках. Это бесплатно и занимает 2 минуты.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-2">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo">
+                                        Можно ли посещать музей с мобильного устройства?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Да, наш сайт полностью адаптирован для мобильных устройств. Для лучшего опыта рекомендуем использовать приложение музея.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-2">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
+                                        Есть ли скидки для групп?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    Да, для групп от 10 человек предоставляется скидка 20%. Для школьных и студенческих групп - специальные условия.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер (одинаковый для всех страниц) -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-geo-alt mr-2"></i>Контакты</h5>
+                    <p class="mb-1">г. Москва, ул. Музейная, д. 1</p>
+                    <p class="mb-1">Email: info@virtualartmuseum.ru</p>
+                    <p class="mb-0">Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-link-45deg mr-2"></i>Быстрая навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="main-bootstrap.html" class="text-light">Главная</a></li>
+                        <li class="mb-2"><a href="collections-bootstrap.html" class="text-light">Коллекции</a></li>
+                        <li class="mb-2"><a href="exhibitions-bootstrap.html" class="text-light">Выставки</a></li>
+                        <li><a href="visit-bootstrap.html" class="text-light">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3"><i class="bi bi-people-fill mr-2"></i>Социальные сети</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="mt-3 small text-light-50">
+                        Подпишитесь на наши соцсети, чтобы быть в курсе новостей и событий музея.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="bg-light my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по Bootstrap 4.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

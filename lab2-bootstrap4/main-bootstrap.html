@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Виртуальный музей искусства - онлайн-пространство для знакомства с шедеврами мирового искусства">
+    <title>Главная | Виртуальный музей искусства</title>
+    
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/bootstrap-style.css">
+    
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Навигационная панель Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="main-bootstrap.html">
+                <i class="bi bi-palette-fill mr-2"></i>
+                Виртуальный музей искусства
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="main-bootstrap.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-bootstrap.html">О музее</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections-bootstrap.html">Коллекции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exhibitions-bootstrap.html">Выставки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visit-bootstrap.html">Посетителям</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education-bootstrap.html">Образовательные программы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts-bootstrap.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="container-fluid px-0">
+        <!-- Hero секция с Jumbotron -->
+        <section class="jumbotron jumbotron-fluid museum-hero text-white text-center mb-0">
+            <div class="container py-5">
+                <h1 class="display-4 font-playfair">Добро пожаловать в мир искусства</h1>
+                <p class="lead">Откройте для себя бесценные коллекции произведений искусства со всего мира, не выходя из дома.</p>
+                <a href="collections-bootstrap.html" class="btn btn-primary btn-lg mt-3">
+                    <i class="bi bi-search mr-2"></i>Исследовать коллекции
+                </a>
+            </div>
+        </section>
+
+        <!-- Основной контент -->
+        <div class="container py-5">
+            <div class="row">
+                <!-- Боковая панель -->
+                <aside class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-clock mr-2"></i>Часы работы</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-1"><strong>Пн-Пт:</strong> 10:00 - 20:00</p>
+                            <p class="card-text mb-1"><strong>Сб-Вс:</strong> 10:00 - 22:00</p>
+                            <p class="card-text text-muted"><em>Без выходных</em></p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="bi bi-newspaper mr-2"></i>Новости</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="text-primary">15.05.2024</h6>
+                            <p class="card-text small">Открывается новая выставка "Импрессионисты"</p>
+                            <hr>
+                            <h6 class="text-primary">10.05.2024</h6>
+                            <p class="card-text small">Лекция об искусстве Возрождения</p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="bi bi-link-45deg mr-2"></i>Быстрые ссылки</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <a href="#virtual-tour" class="text-decoration-none">
+                                        <i class="bi bi-camera-video mr-2"></i>Виртуальный тур
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#current-exhibitions" class="text-decoration-none">
+                                        <i class="bi bi-calendar-event mr-2"></i>Текущие выставки
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#collections-highlight" class="text-decoration-none">
+                                        <i class="bi bi-star-fill mr-2"></i>Шедевры коллекции
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Основной контент-блок -->
+                <div class="col-lg-9">
+                    <!-- Текущие выставки -->
+                    <section id="current-exhibitions" class="mb-5">
+                        <h2 class="mb-4 border-bottom pb-2 font-playfair">Текущие выставки</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="mb-0">Импрессионизм: игра света</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Даты:</strong> 15 мая - 15 августа 2024</p>
+                                        <p class="card-text">Уникальная коллекция работ Моне, Ренуара, Дега и других мастеров импрессионизма.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="exhibitions-bootstrap.html#impressionism" class="btn btn-outline-primary btn-sm">
+                                            Подробнее <i class="bi bi-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0">Сокровища Древнего Египта</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Даты:</strong> 1 апреля - 30 июня 2024</p>
+                                        <p class="card-text">Более 200 артефактов из гробниц фараонов, включая золотые украшения и саркофаги.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <a href="exhibitions-bootstrap.html#egypt" class="btn btn-outline-primary btn-sm">
+                                            Подробнее <i class="bi bi-arrow-right ml-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Виртуальный тур -->
+                    <section id="virtual-tour" class="mb-5">
+                        <h2 class="mb-4 border-bottom pb-2 font-playfair">Виртуальный тур</h2>
+                        <p class="lead mb-4">Погрузитесь в атмосферу нашего музея с помощью интерактивного тура:</p>
+                        
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <!-- Видео элемент HTML5 -->
+                                <div class="embed-responsive embed-responsive-16by9 mb-3">
+                                    <video class="embed-responsive-item" controls poster="https://via.placeholder.com/800x450/cccccc/666666?text=Превью+видео+тура">
+                                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео тег.
+                                    </video>
+                                </div>
+                                <p class="text-muted text-center">
+                                    <i class="bi bi-info-circle mr-1"></i>Видео-тур по главному залу музея. <em>Для просмотра включите звук.</em>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Шедевры коллекции -->
+                    <section id="collections-highlight" class="mb-5">
+                        <h2 class="mb-4 border-bottom pb-2 font-playfair">Шедевры нашей коллекции</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-primary">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-primary">«Звездная ночь»</h5>
+                                        <h6 class="card-subtitle mb-3 text-muted">Винсент Ван Гог, 1889</h6>
+                                        <p class="card-text"><i>Масло, холст. Постимпрессионизм.</i></p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <span class="badge badge-pill badge-warning">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-success">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-success">«Мона Лиза»</h5>
+                                        <h6 class="card-subtitle mb-3 text-muted">Леонардо да Винчи, 1503–1506</h6>
+                                        <p class="card-text"><i>Масло, тополиная доска. Возрождение.</i></p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <span class="badge badge-pill badge-warning">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 border-info">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title text-info">«Танец»</h5>
+                                        <h6 class="card-subtitle mb-3 text-muted">Анри Матисс, 1910</h6>
+                                        <p class="card-text"><i>Масло, холст. Фовизм.</i></p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <span class="badge badge-pill badge-warning">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Аудиогид -->
+                    <section class="mb-5">
+                        <h2 class="mb-4 border-bottom pb-2 font-playfair">Аудиогид</h2>
+                        <p>Прослушайте фрагмент аудиогида по выставке импрессионистов:</p>
+                        
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <!-- Аудио элемент HTML5 -->
+                                <div class="mb-3">
+                                    <audio controls class="w-100">
+                                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                                        Ваш браузер не поддерживает аудио элемент.
+                                    </audio>
+                                </div>
+                                <div class="alert alert-info mb-0">
+                                    <i class="bi bi-info-circle-fill mr-2"></i>
+                                    <strong>Диктор:</strong> Анна Иванова. <u>Длительность:</u> 2 мин 30 сек.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-geo-alt mr-2"></i>Контакты</h5>
+                    <p class="mb-1">г. Москва, ул. Музейная, д. 1</p>
+                    <p class="mb-1">Email: info@virtualartmuseum.ru</p>
+                    <p class="mb-0">Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-link-45deg mr-2"></i>Быстрая навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="main-bootstrap.html" class="text-light">Главная</a></li>
+                        <li class="mb-2"><a href="collections-bootstrap.html" class="text-light">Коллекции</a></li>
+                        <li class="mb-2"><a href="exhibitions-bootstrap.html" class="text-light">Выставки</a></li>
+                        <li><a href="visit-bootstrap.html" class="text-light">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3"><i class="bi bi-people-fill mr-2"></i>Социальные сети</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="mt-3 small text-light-50">
+                        Подпишитесь на наши соцсети, чтобы быть в курсе новостей и событий музея.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="bg-light my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по Bootstrap 4.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS и зависимости -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Кастомный JS (опционально) -->
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 70
+                    }, 800);
+                }
+            });
+            
+            // Подсветка активного раздела при скролле
+            $(window).scroll(function() {
+                var scrollDistance = $(window).scrollTop() + 100;
+                
+                $('section[id]').each(function() {
+                    if (scrollDistance >= $(this).offset().top) {
+                        var id = $(this).attr('id');
+                        $('.navbar-nav .nav-link').removeClass('active');
+                        $('.navbar-nav .nav-link[href="#' + id + '"]').addClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

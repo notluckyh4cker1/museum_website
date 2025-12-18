@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Текущие и будущие выставки Виртуального музея искусства">
+    <title>Выставки | Виртуальный музей искусства</title>
+    
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/bootstrap-style.css">
+    
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Навигационная панель Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="main-bootstrap.html">
+                <i class="bi bi-palette-fill mr-2"></i>
+                Виртуальный музей искусства
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main-bootstrap.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-bootstrap.html">О музее</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections-bootstrap.html">Коллекции</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="exhibitions-bootstrap.html">Выставки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visit-bootstrap.html">Посетителям</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education-bootstrap.html">Образовательные программы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts-bootstrap.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="container py-5 mt-4">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-light p-3 rounded">
+                <li class="breadcrumb-item"><a href="main-bootstrap.html">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Выставки</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Боковая панель -->
+            <aside class="col-lg-3 mb-4 mb-lg-0">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-calendar-month mr-2"></i>Календарь выставок</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Май</strong>
+                                <span class="badge badge-primary">Импрессионизм</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Июнь</strong>
+                                <span class="badge badge-success">Сокровища Египта</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Июль</strong>
+                                <span class="badge badge-info">Русский авангард</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Август</strong>
+                                <span class="badge badge-warning">Искусство Японии</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Сентябрь</strong>
+                                <span class="badge badge-danger">Современные медиа</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="bi bi-megaphone-fill mr-2"></i>Скоро откроется</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="text-primary">С 1 сентября:</h6>
+                        <p class="card-text"><strong>"Цифровое искусство: новые горизонты"</strong></p>
+                        <p class="card-text small">Интерактивная выставка о технологиях в искусстве.</p>
+                        <button class="btn btn-sm btn-outline-warning btn-block">
+                            <i class="bi bi-bell-fill mr-1"></i>Уведомить об открытии
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-camera-video mr-2"></i>Виртуальные туры</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text small">Все выставки доступны в формате 360° туров. Требуется регистрация.</p>
+                        <div class="text-center">
+                            <i class="bi bi-vr text-info display-4 mb-3"></i>
+                        </div>
+                        <a href="visit-bootstrap.html" class="btn btn-info btn-sm btn-block">
+                            <i class="bi bi-pencil-square mr-1"></i>Записаться на тур
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Основной контент -->
+            <div class="col-lg-9">
+                <header class="mb-5">
+                    <h1 class="font-playfair mb-3">Текущие и будущие выставки</h1>
+                    <p class="lead">Откройте для себя уникальные экспозиции, подготовленные нашими кураторами.</p>
+                </header>
+
+                <!-- Импрессионизм: игра света и цвета -->
+                <section id="impressionism" class="mb-5">
+                    <div class="card exhibition-card border-primary">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">Импрессионизм: игра света и цвета</h3>
+                            <span class="badge badge-light">15 мая - 15 августа 2024</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-4">
+                                        <p class="mb-2"><strong><i class="bi bi-person-badge mr-2"></i>Куратор:</strong> Анна Смирнова, доктор искусствоведения</p>
+                                        <p class="mb-0"><strong><i class="bi bi-geo-alt mr-2"></i>Место:</strong> Виртуальный зал №3</p>
+                                    </div>
+                                    
+                                    <h5 class="text-primary mb-3">О выставке</h5>
+                                    <p>Выставка представляет эволюцию импрессионизма от первых экспериментов с цветом и светом до его влияния на последующие художественные течения. В экспозиции более 150 цифровых копий работ из ведущих музеев мира.</p>
+                                    
+                                    <h5 class="text-primary mb-3">Основные разделы:</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li><em>Предшественники</em> - Эжен Буден, Йонгкинд</li>
+                                                <li><em>Рождение импрессионизма</em> - Моне, Ренуар, Дега</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li><em>Постимпрессионизм</em> - Ван Гог, Гоген, Сезанн</li>
+                                                <li><em>Влияние на искусство XX века</em></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="https://via.placeholder.com/300x200/ffebee/ef5350?text=Афиша+выставки" 
+                                             class="card-img-top" 
+                                             alt="Афиша выставки импрессионизма">
+                                        <div class="card-body text-center">
+                                            <p class="card-text small"><i>Промо-материал выставки</i></p>
+                                            <button class="btn btn-primary btn-sm">
+                                                <i class="bi bi-ticket-perforated mr-1"></i>Купить билет
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="text-primary mt-4 mb-3">Особенности выставки:</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-2">
+                                        <i class="bi bi-check-circle-fill text-success mr-2 mt-1"></i>
+                                        <span>Интерактивная временная шкала развития стиля</span>
+                                    </div>
+                                    <div class="d-flex mb-2">
+                                        <i class="bi bi-check-circle-fill text-success mr-2 mt-1"></i>
+                                        <span>Сравнение техник разных художников</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex mb-2">
+                                        <i class="bi bi-check-circle-fill text-success mr-2 mt-1"></i>
+                                        <span>Виртуальная реконструкция парижских кафе 1870-х годов</span>
+                                    </div>
+                                    <div class="d-flex">
+                                        <i class="bi bi-check-circle-fill text-success mr-2 mt-1"></i>
+                                        <span>Аудиогид с комментариями экспертов</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="text-muted small">
+                                        <i class="bi bi-eye-fill mr-1"></i> 2,345 просмотров
+                                    </span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-outline-primary btn-sm mr-2">
+                                        <i class="bi bi-share mr-1"></i>Поделиться
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="bi bi-calendar-plus mr-1"></i>Добавить в календарь
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Сокровища Древнего Египта -->
+                <section id="egypt" class="mb-5">
+                    <div class="card exhibition-card border-warning">
+                        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">Сокровища Древнего Египта: жизнь после жизни</h3>
+                            <span class="badge badge-dark">1 апреля - 30 июня 2024</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-md-8">
+                                    <p class="mb-2"><strong><i class="bi bi-person-badge mr-2"></i>Куратор:</strong> Дмитрий Иванов, египтолог</p>
+                                    <p class="mb-3"><strong><i class="bi bi-geo-alt mr-2"></i>Место:</strong> Виртуальный зал №1</p>
+                                    <p>Путешествие в мир древнеегипетской цивилизации через артефакты, обнаруженные в гробницах фараонов и знати. Выставка подготовлена совместно с Каирским музеем.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="bi bi-gem text-warning display-4 mb-3"></i>
+                                        <p class="mb-0"><strong>Совместно с Каирским музеем</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Таблица экспонатов -->
+                            <h5 class="text-warning mb-3">Основные экспонаты выставки</h5>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Экспонат</th>
+                                            <th>Период</th>
+                                            <th>Материал</th>
+                                            <th>Особенности</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Маска Тутанхамона</strong></td>
+                                            <td>1323 г. до н.э.</td>
+                                            <td>Золото, полудрагоценные камни</td>
+                                            <td>Погребальная маска фараона</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Статуя писца Каи</strong></td>
+                                            <td>2500 г. до н.э.</td>
+                                            <td>Известняк, краска</td>
+                                            <td>Идеализированный портрет</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Папирус "Книги мёртвых"</strong></td>
+                                            <td>1250 г. до н.э.</td>
+                                            <td>Папирус, чернила</td>
+                                            <td>Руководство для души в загробном мире</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Ушебти фараона</strong></td>
+                                            <td>1000 г. до н.э.</td>
+                                            <td>Фаянс</td>
+                                            <td>Фигурки слуг для загробной жизни</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Скарабей из гробницы</strong></td>
+                                            <td>1500 г. до н.э.</td>
+                                            <td>Лазурит</td>
+                                            <td>Символ возрождения</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h5 class="text-warning mt-4 mb-3">Интерактивные элементы:</h5>
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-3">
+                                    <div class="border rounded p-3">
+                                        <i class="bi bi-box-seam text-primary display-4 mb-2"></i>
+                                        <p class="mb-0">Виртуальная реконструкция гробницы</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="border rounded p-3">
+                                        <i class="bi bi-arrows-fullscreen text-success display-4 mb-2"></i>
+                                        <p class="mb-0">3D-модели с возможностью вращения</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="border rounded p-3">
+                                        <i class="bi bi-translate text-warning display-4 mb-2"></i>
+                                        <p class="mb-0">Иероглифический переводчик</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Русский авангард -->
+                <section id="russian-avantgarde" class="mb-5">
+                    <div class="card exhibition-card border-danger">
+                        <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">Русский авангард: революция в искусстве</h3>
+                            <span class="badge badge-light">1 июля - 30 сентября 2024</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="mb-2"><strong><i class="bi bi-person-badge mr-2"></i>Куратор:</strong> Мария Петрова, исследователь русского авангарда</p>
+                                    <p class="mb-3"><strong><i class="bi bi-geo-alt mr-2"></i>Место:</strong> Виртуальный зал №2</p>
+                                    <p>Выставка исследует феномен русского авангарда 1910-1930-х годов через работы Малевича, Кандинского, Татлина, Родченко и других художников.</p>
+                                    
+                                    <h5 class="text-danger mt-4 mb-3">Художественные направления:</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li><span class="badge badge-danger mr-1">С</span> <strong>Супрематизм</strong> - геометрические формы, чистые цвета</li>
+                                                <li><span class="badge badge-danger mr-1">К</span> <strong>Конструктивизм</strong> - утилитарность, производственное искусство</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li><span class="badge badge-danger mr-1">Л</span> <strong>Лучизм</strong> - изображение световых лучей</li>
+                                                <li><span class="badge badge-danger mr-1">Б</span> <strong>Будетлянство</strong> - футуризм по-русски</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-building text-danger display-1 mb-3"></i>
+                                            <h5>Специальный проект</h5>
+                                            <p class="card-text">Виртуальная реконструкция "Башни Татлина" - памятника III Интернационала.</p>
+                                            <button class="btn btn-outline-danger btn-sm">
+                                                <i class="bi bi-play-circle mr-1"></i>Демо-версия
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Прошедшие выставки -->
+                <section id="past-exhibitions" class="mb-5">
+                    <h2 class="font-playfair mb-4">Прошедшие выставки (архив)</h2>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Период</th>
+                                            <th>Название выставки</th>
+                                            <th>Статистика</th>
+                                            <th>Доступ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Январь-Март 2024</strong></td>
+                                            <td>"Искусство эпохи Возрождения: гении и их творения"</td>
+                                            <td><span class="badge badge-info">15,432 посетителя</span></td>
+                                            <td><button class="btn btn-sm btn-outline-secondary">В архив</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Октябрь-Декабрь 2023</strong></td>
+                                            <td>"Сюрреализм: мир снов и фантазий"</td>
+                                            <td><span class="badge badge-info">12,789 посетителей</span></td>
+                                            <td><button class="btn btn-sm btn-outline-secondary">В архив</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Июль-Сентябрь 2023</strong></td>
+                                            <td>"Искусство Японии: от гравюры укиё-э до аниме"</td>
+                                            <td><span class="badge badge-info">18,567 посетителей</span></td>
+                                            <td><button class="btn btn-sm btn-outline-secondary">В архив</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Апрель-Июнь 2023</strong></td>
+                                            <td>"Женщины в искусстве: от муз к творцам"</td>
+                                            <td><span class="badge badge-info">21,345 посетителей</span></td>
+                                            <td><button class="btn btn-sm btn-outline-secondary">В архив</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a href="#" class="btn btn-secondary">
+                                    <i class="bi bi-archive mr-2"></i>Перейти в полный архив выставок
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Карусель отзывов -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4">Отзывы посетителей</h2>
+                    
+                    <div id="exhibitionCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p>"Выставка импрессионистов превзошла все ожидания. Качество цифровых копий потрясающее!"</p>
+                                            <footer class="blockquote-footer">Мария Иванова, <cite title="Историк искусства">историк искусства</cite></footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p>"Египетская выставка - это путешествие во времени. 3D-модели артефактов позволяют рассмотреть каждую деталь."</p>
+                                            <footer class="blockquote-footer">Алексей Петров, <cite title="Студент">студент МГУ</cite></footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#exhibitionCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Предыдущий</span>
+                        </a>
+                        <a class="carousel-control-next" href="#exhibitionCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Следующий</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-geo-alt mr-2"></i>Контакты</h5>
+                    <p class="mb-1">г. Москва, ул. Музейная, д. 1</p>
+                    <p class="mb-1">Email: info@virtualartmuseum.ru</p>
+                    <p class="mb-0">Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-link-45deg mr-2"></i>Быстрая навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="main-bootstrap.html" class="text-light">Главная</a></li>
+                        <li class="mb-2"><a href="collections-bootstrap.html" class="text-light">Коллекции</a></li>
+                        <li class="mb-2"><a href="exhibitions-bootstrap.html" class="text-light">Выставки</a></li>
+                        <li><a href="visit-bootstrap.html" class="text-light">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3"><i class="bi bi-people-fill mr-2"></i>Социальные сети</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="mt-3 small text-light-50">
+                        Подпишитесь на наши соцсети, чтобы быть в курсе новостей и событий музея.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="bg-light my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по Bootstrap 4.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

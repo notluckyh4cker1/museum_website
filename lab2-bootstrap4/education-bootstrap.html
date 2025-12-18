@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Образовательные программы Виртуального музея искусства">
+    <title>Образовательные программы | Виртуальный музей искусства</title>
+    
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="css/bootstrap-style.css">
+    
+    <!-- Иконки Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Навигационная панель Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="main-bootstrap.html">
+                <i class="bi bi-palette-fill mr-2"></i>
+                Виртуальный музей искусства
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main-bootstrap.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-bootstrap.html">О музее</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections-bootstrap.html">Коллекции</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exhibitions-bootstrap.html">Выставки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visit-bootstrap.html">Посетителям</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="education-bootstrap.html">Образовательные программы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts-bootstrap.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="container py-5 mt-4">
+        <!-- Хлебные крошки -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-light p-3 rounded">
+                <li class="breadcrumb-item"><a href="main-bootstrap.html">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Образовательные программы</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <!-- Боковая панель -->
+            <aside class="col-lg-3 mb-4 mb-lg-0">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-calendar-week mr-2"></i>Расписание лекций</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Пн</strong><br>
+                                    <small>18:00 - Искусство Возрождения</small>
+                                </div>
+                                <span class="badge badge-primary">Онлайн</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Вт</strong><br>
+                                    <small>19:00 - Современное искусство</small>
+                                </div>
+                                <span class="badge badge-success">Офлайн</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Ср</strong><br>
+                                    <small>17:00 - Детская программа</small>
+                                </div>
+                                <span class="badge badge-primary">Онлайн</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Чт</strong><br>
+                                    <small>18:30 - История импрессионизма</small>
+                                </div>
+                                <span class="badge badge-primary">Онлайн</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Пт</strong><br>
+                                    <small>19:30 - Искусство Востока</small>
+                                </div>
+                                <span class="badge badge-success">Офлайн</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-award-fill mr-2"></i>Бесплатные курсы</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                Основы искусствоведения
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                Как понимать современное искусство
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                История русской иконописи
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                Искусство для детей
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-people-fill mr-2"></i>Для преподавателей</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text small">Специальные программы для школ и вузов. Групповые скидки.</p>
+                        <div class="text-center">
+                            <i class="bi bi-mortarboard text-info display-4 mb-3"></i>
+                        </div>
+                        <a href="contacts-bootstrap.html" class="btn btn-info btn-sm btn-block">
+                            <i class="bi bi-envelope-plus mr-1"></i>Заявка для групп
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Основной контент -->
+            <div class="col-lg-9">
+                <header class="mb-5">
+                    <h1 class="font-playfair mb-3">Образовательные программы</h1>
+                    <p class="lead">Музей предлагает разнообразные образовательные программы для всех возрастов и уровней подготовки. <strong>Все программы доступны онлайн</strong>.</p>
+                </header>
+
+                <!-- Лекции и курсы -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-mic-fill text-primary mr-2"></i>Лекции и курсы</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">Шедевры мирового искусства</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Лектор:</strong> д.иск. Анна Смирнова</p>
+                                    <p class="card-text"><strong>Формат:</strong> 10 онлайн-лекций по 1.5 часа</p>
+                                    <p class="card-text"><strong>Стоимость:</strong> <span class="text-success">3000 ₽</span> за цикл</p>
+                                    <p class="card-text">От Древнего Египта до современного искусства.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary btn-sm btn-block">
+                                        <i class="bi bi-cart-plus mr-1"></i>Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-success text-white">
+                                    <h5 class="mb-0">Как понимать искусство</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Для кого:</strong> Начинающие</p>
+                                    <p class="card-text"><strong>Формат:</strong> 8 интерактивных занятий</p>
+                                    <p class="card-text"><strong>Стоимость:</strong> <span class="text-success">2000 ₽</span></p>
+                                    <p class="card-text">Основные стили, техники, анализ произведений.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success btn-sm btn-block">
+                                        <i class="bi bi-cart-plus mr-1"></i>Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5 class="mb-0">Искусство для бизнеса</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text"><strong>Для кого:</strong> Корпоративные клиенты</p>
+                                    <p class="card-text"><strong>Формат:</strong> Индивидуальная программа</p>
+                                    <p class="card-text"><strong>Стоимость:</strong> По запросу</p>
+                                    <p class="card-text">Развитие креативного мышления через искусство.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-warning btn-sm btn-block">
+                                        <i class="bi bi-envelope mr-1"></i>Запросить программу
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Детские программы -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-emoji-smile-fill text-info mr-2"></i>Детские программы</h2>
+                    
+                    <!-- Таблица детских программ -->
+                    <div class="table-responsive mb-4">
+                        <table class="table table-hover table-bordered">
+                            <caption class="text-center font-italic">Программы для детей разных возрастов</caption>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Возраст</th>
+                                    <th>Название программы</th>
+                                    <th>Формат</th>
+                                    <th>Продолжительность</th>
+                                    <th>Стоимость</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="badge badge-info">5-7 лет</span></td>
+                                    <td><strong>"Волшебные краски"</strong></td>
+                                    <td>Игра-путешествие</td>
+                                    <td>45 минут</td>
+                                    <td><span class="text-success">500 ₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-primary">8-10 лет</span></td>
+                                    <td><strong>"Юный искусствовед"</strong></td>
+                                    <td>Интерактивный квест</td>
+                                    <td>1 час</td>
+                                    <td><span class="text-success">600 ₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-success">11-13 лет</span></td>
+                                    <td><strong>"История в картинах"</strong></td>
+                                    <td>Лекция+викторина</td>
+                                    <td>1.5 часа</td>
+                                    <td><span class="text-success">700 ₽</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-warning">14-17 лет</span></td>
+                                    <td><strong>"Профориентация в искусстве"</strong></td>
+                                    <td>Встречи с профессионалами</td>
+                                    <td>2 часа</td>
+                                    <td><span class="text-success">1000 ₽</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <i class="bi bi-percent mr-2"></i>
+                        <strong>Для групп от 10 человек - скидка 20%</strong>. Специальные условия для школ и детских центров.
+                    </div>
+                </section>
+
+                <!-- Виртуальные экскурсии -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-camera-video-fill text-danger mr-2"></i>Виртуальные экскурсии</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-danger text-white">
+                                    <h5 class="mb-0">Тематические экскурсии</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success mr-2"></i>
+                                            "Тайны старых мастеров"
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success mr-2"></i>
+                                            "Символы в искусстве"
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success mr-2"></i>
+                                            "Искусство и мода"
+                                        </li>
+                                        <li>
+                                            <i class="bi bi-check-circle-fill text-success mr-2"></i>
+                                            "Архитектура как искусство"
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="mb-0"><strong>Продолжительность:</strong> 1-1.5 часа</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-secondary text-white">
+                                    <h5 class="mb-0">Экскурсии на иностранных языках</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <div class="col-6 mb-3">
+                                            <i class="bi bi-translate text-primary display-4"></i>
+                                            <p class="mt-2">Английский</p>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <i class="bi bi-translate text-success display-4"></i>
+                                            <p class="mt-2">Французский</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="bi bi-translate text-warning display-4"></i>
+                                            <p class="mt-2">Немецкий</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="bi bi-translate text-danger display-4"></i>
+                                            <p class="mt-2">Китайский</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <p class="mb-0"><strong>Стоимость:</strong> +50% к базовой цене</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Мастер-классы -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-brush-fill text-success mr-2"></i>Мастер-классы</h2>
+                    
+                    <p class="mb-4">Практические занятия под руководством профессиональных художников:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-success">
+                                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Акварельная живопись</h5>
+                                    <span class="badge badge-light">Начинающие</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Основы техники акварели. Все материалы предоставляются виртуально.</p>
+                                    <div class="mb-3">
+                                        <strong>Даты:</strong> Каждую субботу в 11:00
+                                    </div>
+                                    <div>
+                                        <strong>Стоимость:</strong> 1500 ₽ за занятие
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-success btn-sm">
+                                        <i class="bi bi-calendar-plus mr-1"></i>Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 border-primary">
+                                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Цифровое искусство</h5>
+                                    <span class="badge badge-light">Продвинутые</span>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Создание работ в графических редакторах. Для начинающих и опытных.</p>
+                                    <div class="mb-3">
+                                        <strong>Даты:</strong> По средам в 19:00
+                                    </div>
+                                    <div>
+                                        <strong>Стоимость:</strong> 2000 ₽ за занятие
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="bi bi-calendar-plus mr-1"></i>Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle-fill mr-2"></i>
+                        <strong>Важно:</strong> Все мастер-классы записываются и доступны участникам в течение месяца после проведения.
+                    </div>
+                </section>
+
+                <!-- Форма записи -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-pencil-fill text-warning mr-2"></i>Запись на программу</h2>
+                    
+                    <div class="card">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0">Форма записи</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-4">Заполните форму, и мы свяжемся с вами для уточнения деталей:</p>
+                            
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="eduName">ФИО *</label>
+                                        <input type="text" class="form-control" id="eduName" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="eduEmail">Email *</label>
+                                        <input type="email" class="form-control" id="eduEmail" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="eduProgram">Интересующая программа *</label>
+                                        <select class="form-control" id="eduProgram" required>
+                                            <option value="">Выберите программу...</option>
+                                            <option value="lectures">Лекции</option>
+                                            <option value="children">Детские программы</option>
+                                            <option value="excursions">Экскурсии</option>
+                                            <option value="master">Мастер-классы</option>
+                                            <option value="corporate">Корпоративные программы</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="eduParticipants">Количество участников</label>
+                                        <input type="number" class="form-control" id="eduParticipants" min="1" value="1">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="eduMessage">Дополнительные пожелания</label>
+                                    <textarea class="form-control" id="eduMessage" rows="4"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="eduAgreement" required>
+                                        <label class="form-check-label" for="eduAgreement">
+                                            Я согласен с условиями обработки персональных данных *
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-warning btn-lg px-5">
+                                        <i class="bi bi-send-fill mr-2"></i>Отправить заявку
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Отзывы о программах -->
+                <section class="mb-5">
+                    <h2 class="font-playfair mb-4"><i class="bi bi-chat-left-quote-fill text-primary mr-2"></i>Отзывы участников</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="bi bi-person-fill"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h6 class="mb-0">Ольга Смирнова</h6>
+                                            <small class="text-muted">Курс "Как понимать искусство"</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">"Отличный курс для начинающих! Теперь смотрю на искусство совсем другими глазами."</p>
+                                    <div class="text-warning">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="bi bi-person-fill"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h6 class="mb-0">Иван Петров</h6>
+                                            <small class="text-muted">Мастер-класс "Цифровое искусство"</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">"Преподаватель отлично объясняет сложные вещи простым языком. Рекомендую!"</p>
+                                    <div class="text-warning">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="bi bi-person-fill"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h6 class="mb-0">Анна Ковалева</h6>
+                                            <small class="text-muted">Детская программа "Волшебные краски"</small>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">"Мой ребенок в восторге! Теперь каждую неделю ждет занятия по искусству."</p>
+                                    <div class="text-warning">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-geo-alt mr-2"></i>Контакты</h5>
+                    <p class="mb-1">г. Москва, ул. Музейная, д. 1</p>
+                    <p class="mb-1">Email: info@virtualartmuseum.ru</p>
+                    <p class="mb-0">Тел.: +7 (495) 123-45-67</p>
+                </div>
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3"><i class="bi bi-link-45deg mr-2"></i>Быстрая навигация</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="main-bootstrap.html" class="text-light">Главная</a></li>
+                        <li class="mb-2"><a href="collections-bootstrap.html" class="text-light">Коллекции</a></li>
+                        <li class="mb-2"><a href="exhibitions-bootstrap.html" class="text-light">Выставки</a></li>
+                        <li><a href="visit-bootstrap.html" class="text-light">Билеты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5 class="mb-3"><i class="bi bi-people-fill mr-2"></i>Социальные сети</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="mt-3 small text-light-50">
+                        Подпишитесь на наши соцсети, чтобы быть в курсе новостей и событий музея.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="bg-light my-4">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по Bootstrap 4.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
