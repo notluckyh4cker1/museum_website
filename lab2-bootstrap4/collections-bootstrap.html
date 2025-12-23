@@ -19,6 +19,71 @@
     
     <!-- Иконки Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Стили для галереи -->
+    <style>
+        .gallery-img {
+            cursor: pointer;
+            transition: transform 0.3s;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .artwork-card {
+            transition: all 0.3s;
+        }
+        .artwork-card.hidden {
+            display: none;
+        }
+        .highlight {
+            background-color: #fff9c4 !important;
+            animation: highlight 1.5s;
+        }
+        @keyframes highlight {
+            0% { background-color: #fff9c4; }
+            100% { background-color: inherit; }
+        }
+        #slideshow {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s;
+            object-fit: cover;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .slideshow-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+        .subscription-form .error {
+            color: #dc3545;
+            font-size: 0.875em;
+            display: none;
+        }
+        .subscription-form .is-invalid {
+            border-color: #dc3545;
+        }
+        #searchResults {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Навигационная панель Bootstrap -->
@@ -72,79 +137,106 @@
         </nav>
 
         <div class="row">
-            <!-- Боковая панель -->
+            <!-- Боковая панель с интерактивными элементами -->
             <aside class="col-lg-3 mb-4 mb-lg-0">
+                <!-- Поиск по коллекциям -->
                 <div class="card mb-4">
                     <div class="card-header bg-primary text-white">
                         <h5 class="mb-0"><i class="bi bi-search mr-2"></i>Поиск по коллекциям</h5>
                     </div>
                     <div class="card-body">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Название, автор...">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Название, автор...">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button">
+                                <button class="btn btn-outline-primary" type="button" id="searchButton">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </div>
+                        <div id="searchResults" class="d-none">
+                            <h6>Результаты поиска:</h6>
+                            <div id="resultsList" class="list-group"></div>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="collectionFilter">Фильтр по периоду:</label>
-                            <select class="form-control" id="collectionFilter">
-                                <option>Все периоды</option>
-                                <option>Возрождение</option>
-                                <option>Барокко</option>
-                                <option>Импрессионизм</option>
-                                <option>Модернизм</option>
-                                <option>Современное искусство</option>
+                            <select class="form-control" id="collectionFilter" onchange="filterCollections()">
+                                <option value="all">Все периоды</option>
+                                <option value="renaissance">Возрождение</option>
+                                <option value="impressionism">Импрессионизм</option>
+                                <option value="modern">Модернизм</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="styleFilter">Фильтр по стилю:</label>
+                            <select class="form-control" id="styleFilter" onchange="filterByStyle()">
+                                <option value="all">Все стили</option>
+                                <option value="painting">Живопись</option>
+                                <option value="sculpture">Скульптура</option>
+                                <option value="graphics">Графика</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
+                <!-- Подписка на новости коллекций -->
                 <div class="card mb-4">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="mb-0"><i class="bi bi-calendar-week mr-2"></i>Периоды</h5>
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-envelope-fill mr-2"></i>Подписка на новости</h5>
                     </div>
-                    <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            <a href="#renaissance" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                Возрождение
-                                <span class="badge badge-primary badge-pill">45</span>
-                            </a>
-                            <a href="#baroque" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                Барокко
-                                <span class="badge badge-primary badge-pill">32</span>
-                            </a>
-                            <a href="#impressionism" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                Импрессионизм
-                                <span class="badge badge-primary badge-pill">68</span>
-                            </a>
-                            <a href="#modern" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                Модернизм
-                                <span class="badge badge-primary badge-pill">54</span>
-                            </a>
-                            <a href="#contemporary" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                Современное искусство
-                                <span class="badge badge-primary badge-pill">89</span>
-                            </a>
+                    <div class="card-body subscription-form">
+                        <p class="small">Узнавайте первыми о новых поступлениях в коллекцию!</p>
+                        <form id="subscriptionForm">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="subEmail" placeholder="Ваш email" required>
+                                <div class="error" id="emailError">Введите корректный email</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subName" placeholder="Ваше имя">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="subAgreement" required>
+                                <label class="form-check-label small" for="subAgreement">
+                                    Согласен на обработку данных
+                                </label>
+                                <div class="error" id="agreementError">Необходимо согласие</div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="bi bi-bell-fill mr-1"></i>Подписаться
+                            </button>
+                        </form>
+                        <div id="subscriptionSuccess" class="alert alert-success mt-3 d-none">
+                            <i class="bi bi-check-circle-fill mr-2"></i>
+                            Вы успешно подписались!
                         </div>
                     </div>
                 </div>
 
+                <!-- Быстрые действия -->
                 <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="bi bi-bar-chart-fill mr-2"></i>Коллекция в цифрах</h5>
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-lightning-fill mr-2"></i>Быстрые действия</h5>
                     </div>
                     <div class="card-body">
-                        <div class="text-center">
-                            <h2 class="text-primary">10,000+</h2>
-                            <p class="text-muted">произведений</p>
-                            <h2 class="text-success">500+</h2>
-                            <p class="text-muted">художников</p>
-                            <h2 class="text-warning">50+</h2>
-                            <p class="text-muted">стран</p>
-                            <h2 class="text-info">2,000+</h2>
-                            <p class="text-muted">лет истории</p>
+                        <div class="d-grid gap-2">
+                            <!-- Вид 1: JavaScript через гипертекстовую ссылку -->
+                            <a href="javascript:void(0)" onclick="showRandomArtwork()" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-shuffle mr-1"></i>Случайный шедевр
+                            </a>
+                            
+                            <!-- Вид 2: Обработчик события прямо в HTML -->
+                            <button class="btn btn-outline-info btn-sm" onclick="startSlideshow()">
+                                <i class="bi bi-play-circle mr-1"></i>Запустить слайд-шоу
+                            </button>
+                            
+                            <button class="btn btn-outline-info btn-sm" onclick="resetFilters()">
+                                <i class="bi bi-arrow-counterclockwise mr-1"></i>Сбросить фильтры
+                            </button>
+                            
+                            <button class="btn btn-outline-info btn-sm" onclick="showStatistics()">
+                                <i class="bi bi-bar-chart mr-1"></i>Показать статистику
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -155,306 +247,307 @@
                 <header class="mb-5">
                     <h1 class="font-playfair mb-3">Наши коллекции</h1>
                     <p class="lead">Исследуйте богатейшее собрание произведений искусства от древности до современности.</p>
+                    
+                    <!-- Интерактивная статистика -->
+                    <div class="row mb-4">
+                        <div class="col-md-3 col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 id="totalArtworks" class="text-primary">10,000+</h3>
+                                    <p class="text-muted mb-0">Всего работ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 id="visibleArtworks" class="text-success">10</h3>
+                                    <p class="text-muted mb-0">Показано сейчас</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 id="favoritesCount" class="text-warning">0</h3>
+                                    <p class="text-muted mb-0">В избранном</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 id="lastViewed" class="text-info">-</h3>
+                                    <p class="text-muted mb-0">Последний просмотр</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </header>
+
+                <!-- Слайд-шоу галереи -->
+                <section class="mb-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="font-playfair mb-0">Шедевры галереи</h2>
+                        <div>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="prevSlide()">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary mx-2" onclick="toggleSlideshow()">
+                                <i class="bi bi-pause-fill" id="playPauseIcon"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="nextSlide()">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="slideshow" class="card">
+                        <div class="card-body p-0 position-relative">
+                            <img src="https://via.placeholder.com/800x400/4a6491/ffffff?text=Мона+Лиза+by+Леонардо+да+Винчи" 
+                                 alt="Мона Лиза" class="slide active" data-title="Мона Лиза" data-artist="Леонардо да Винчи" data-year="1503-1506">
+                            <img src="https://via.placeholder.com/800x400/3498db/ffffff?text=Звёздная+Ночь+by+Винсент+Ван+Гог" 
+                                 alt="Звёздная ночь" class="slide" data-title="Звёздная ночь" data-artist="Винсент Ван Гог" data-year="1889">
+                            <img src="https://via.placeholder.com/800x400/2ecc71/ffffff?text=Танец+by+Анри+Матисс" 
+                                 alt="Танец" class="slide" data-title="Танец" data-artist="Анри Матисс" data-year="1910">
+                            <img src="https://via.placeholder.com/800x400/e74c3c/ffffff?text=Крик+by+Эдвард+Мунк" 
+                                 alt="Крик" class="slide" data-title="Крик" data-artist="Эдвард Мунк" data-year="1893">
+                            
+                            <div class="slideshow-controls">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-sm btn-light" onclick="goToSlide(0)">1</button>
+                                    <button type="button" class="btn btn-sm btn-light" onclick="goToSlide(1)">2</button>
+                                    <button type="button" class="btn btn-sm btn-light" onclick="goToSlide(2)">3</button>
+                                    <button type="button" class="btn btn-sm btn-light" onclick="goToSlide(3)">4</button>
+                                </div>
+                            </div>
+                            
+                            <div class="position-absolute" style="bottom: 10px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px;">
+                                <h5 id="slideTitle" class="mb-0">Мона Лиза</h5>
+                                <small id="slideInfo">Леонардо да Винчи, 1503-1506</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Эпоха Возрождения -->
                 <section id="renaissance" class="mb-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2 class="font-playfair mb-0">Эпоха Возрождения (XIV-XVII вв.)</h2>
-                        <span class="badge badge-primary">45 произведений</span>
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary" onclick="sortArtworks('title')">
+                                <i class="bi bi-sort-alpha-down"></i> По названию
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary ml-2" onclick="sortArtworks('year')">
+                                <i class="bi bi-sort-numeric-down"></i> По году
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="alert alert-info">
                         <i class="bi bi-info-circle-fill mr-2"></i>
                         <strong>Ключевые художники:</strong> Леонардо да Винчи, Рафаэль, Микеланджело, Тициан
+                        <button class="btn btn-sm btn-outline-info float-right" onclick="toggleArtistsInfo()">
+                            <i class="bi bi-chevron-down" id="artistToggleIcon"></i> Подробнее
+                        </button>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
+                    <div id="artistsInfo" class="card mb-4 d-none">
+                        <div class="card-body">
+                            <h5>Художники Возрождения:</h5>
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <div class="artist-card p-3" onclick="showArtistWorks('Леонардо да Винчи')">
+                                        <i class="bi bi-person-circle display-4 text-primary"></i>
+                                        <h6>Леонардо да Винчи</h6>
+                                        <small>1452-1519</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <div class="artist-card p-3" onclick="showArtistWorks('Рафаэль')">
+                                        <i class="bi bi-person-circle display-4 text-success"></i>
+                                        <h6>Рафаэль</h6>
+                                        <small>1483-1520</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <div class="artist-card p-3" onclick="showArtistWorks('Микеланджело')">
+                                        <i class="bi bi-person-circle display-4 text-warning"></i>
+                                        <h6>Микеланджело</h6>
+                                        <small>1475-1564</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <div class="artist-card p-3" onclick="showArtistWorks('Тициан')">
+                                        <i class="bi bi-person-circle display-4 text-danger"></i>
+                                        <h6>Тициан</h6>
+                                        <small>1488-1576</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Карточки произведений -->
+                    <div class="row" id="artworksContainer">
+                        <div class="col-md-4 mb-4 artwork-card" data-period="renaissance" data-style="painting" data-year="1506">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/300x200/4a6491/ffffff?text=Мона+Лиза" 
+                                     class="card-img-top gallery-img" 
+                                     alt="Мона Лиза"
+                                     onclick="openArtworkModal('Мона Лиза', 'Леонардо да Винчи', '1503-1506', 'Масло, тополиная доска', 'Портрет Лизы дель Джокондо')">
                                 <div class="card-body">
-                                    <h5 class="card-title text-primary">Мона Лиза</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Леонардо да Винчи, 1503-1506</h6>
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5 class="card-title text-primary">Мона Лиза</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Леонардо да Винчи, 1503-1506</h6>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleFavorite(this, 'Мона Лиза')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
                                     <p class="card-text">Портрет Лизы дель Джокондо, самый известный портрет в истории искусства.</p>
                                     <div class="mt-3">
                                         <span class="badge badge-warning mr-1">Портрет</span>
                                         <span class="badge badge-info">Масло</span>
+                                        <span class="badge badge-secondary">Возрождение</span>
                                     </div>
                                 </div>
                                 <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showDetails('Мона Лиза')">
                                         <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-success ml-2" onclick="addToCompare('Мона Лиза')">
+                                        <i class="bi bi-plus-circle mr-1"></i>Сравнить
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
+                        <div class="col-md-4 mb-4 artwork-card" data-period="renaissance" data-style="painting" data-year="1513">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Сикстинская+Мадонна" 
+                                     class="card-img-top gallery-img" 
+                                     alt="Сикстинская Мадонна"
+                                     onclick="openArtworkModal('Сикстинская Мадонна', 'Рафаэль', '1512-1513', 'Масло, холст', 'Алтарный образ для церкви монастыря святого Сикста')">
                                 <div class="card-body">
-                                    <h5 class="card-title text-primary">Сикстинская Мадонна</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Рафаэль, 1512-1513</h6>
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5 class="card-title text-primary">Сикстинская Мадонна</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Рафаэль, 1512-1513</h6>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleFavorite(this, 'Сикстинская Мадонна')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
                                     <p class="card-text">Алтарный образ для церкви монастыря святого Сикста в Пьяченце.</p>
                                     <div class="mt-3">
                                         <span class="badge badge-warning mr-1">Религиозное</span>
                                         <span class="badge badge-info">Масло</span>
+                                        <span class="badge badge-secondary">Возрождение</span>
                                     </div>
                                 </div>
                                 <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showDetails('Сикстинская Мадонна')">
                                         <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-success ml-2" onclick="addToCompare('Сикстинская Мадонна')">
+                                        <i class="bi bi-plus-circle mr-1"></i>Сравнить
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
+                        <div class="col-md-4 mb-4 artwork-card" data-period="renaissance" data-style="sculpture" data-year="1504">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Давид" 
+                                     class="card-img-top gallery-img" 
+                                     alt="Давид"
+                                     onclick="openArtworkModal('Давид', 'Микеланджело', '1501-1504', 'Мрамор', 'Статуя библейского героя Давида')">
                                 <div class="card-body">
-                                    <h5 class="card-title text-primary">Давид</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Микеланджело, 1501-1504</h6>
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5 class="card-title text-primary">Давид</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Микеланджело, 1501-1504</h6>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleFavorite(this, 'Давид')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
                                     <p class="card-text">Мраморная статуя библейского героя Давида, символ Флорентийской республики.</p>
                                     <div class="mt-3">
                                         <span class="badge badge-warning mr-1">Скульптура</span>
                                         <span class="badge badge-info">Мрамор</span>
+                                        <span class="badge badge-secondary">Возрождение</span>
                                     </div>
                                 </div>
                                 <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-primary">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showDetails('Давид')">
                                         <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-success ml-2" onclick="addToCompare('Давид')">
+                                        <i class="bi bi-plus-circle mr-1"></i>Сравнить
+                                    </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Сравнение произведений -->
+                    <div id="compareSection" class="card mt-4 d-none">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0 d-flex justify-content-between align-items-center">
+                                <span>Сравнение произведений</span>
+                                <button class="btn btn-sm btn-outline-dark" onclick="clearComparison()">
+                                    <i class="bi bi-x-circle"></i> Очистить
+                                </button>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="compareList" class="row"></div>
                         </div>
                     </div>
                     
                     <div class="text-center mt-3">
-                        <a href="#" class="btn btn-primary">
-                            <i class="bi bi-arrow-right-circle mr-2"></i>Смотреть все работы Возрождения
-                        </a>
+                        <button class="btn btn-primary" onclick="loadMoreArtworks()">
+                            <i class="bi bi-plus-circle mr-2"></i>Загрузить ещё работы
+                        </button>
                     </div>
                 </section>
 
-                <!-- Импрессионизм -->
-                <section id="impressionism" class="mb-5">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="font-playfair mb-0">Импрессионизм (XIX век)</h2>
-                        <span class="badge badge-success">68 произведений</span>
-                    </div>
-                    
-                    <div class="alert alert-success">
-                        <i class="bi bi-info-circle-fill mr-2"></i>
-                        <strong>Ключевые художники:</strong> Клод Моне, Эдгар Дега, Пьер-Огюст Ренуар, Винсент Ван Гог
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Впечатление. Восходящее солнце</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Клод Моне, 1872</h6>
-                                    <p class="card-text">Картина, давшая название всему направлению импрессионизма.</p>
-                                    <div class="mt-3">
-                                        <span class="badge badge-warning mr-1">Пейзаж</span>
-                                        <span class="badge badge-info">Масло</span>
+                <!-- Модальное окно для деталей произведения -->
+                <div class="modal fade" id="artworkModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle"></h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img id="modalImage" src="" class="img-fluid rounded" alt="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Художник:</strong> <span id="modalArtist"></span></p>
+                                        <p><strong>Годы создания:</strong> <span id="modalYear"></span></p>
+                                        <p><strong>Техника:</strong> <span id="modalTechnique"></span></p>
+                                        <p><strong>Описание:</strong> <span id="modalDescription"></span></p>
+                                        <div id="modalTags"></div>
                                     </div>
                                 </div>
-                                <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-success">
-                                        <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
-                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Звёздная ночь</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Винсент Ван Гог, 1889</h6>
-                                    <p class="card-text">Одно из самых узнаваемых произведений западного искусства.</p>
-                                    <div class="mt-3">
-                                        <span class="badge badge-warning mr-1">Пейзаж</span>
-                                        <span class="badge badge-info">Масло</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-success">
-                                        <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100 artwork-card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-success">Танец в Мулен де ла Галетт</h5>
-                                    <h6 class="card-subtitle mb-3 text-muted">Пьер-Огюст Ренуар, 1876</h6>
-                                    <p class="card-text">Жизнерадостная сцена из жизни парижского монмартрского кафе.</p>
-                                    <div class="mt-3">
-                                        <span class="badge badge-warning mr-1">Жанровая сцена</span>
-                                        <span class="badge badge-info">Масло</span>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent">
-                                    <a href="#" class="btn btn-sm btn-outline-success">
-                                        <i class="bi bi-zoom-in mr-1"></i>Детали
-                                    </a>
-                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                <button type="button" class="btn btn-primary" onclick="shareArtwork()">
+                                    <i class="bi bi-share mr-1"></i>Поделиться
+                                </button>
                             </div>
                         </div>
                     </div>
-                </section>
-
-                <!-- Модернизм -->
-                <section id="modern" class="mb-5">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="font-playfair mb-0">Модернизм (XX век)</h2>
-                        <span class="badge badge-warning">54 произведения</span>
-                    </div>
-                    
-                    <div class="alert alert-warning">
-                        <i class="bi bi-info-circle-fill mr-2"></i>
-                        <strong>Ключевые художники:</strong> Пабло Пикассо, Сальвадор Дали, Анри Матисс, Василий Кандинский
-                    </div>
-                    
-                    <!-- Таблица направлений модернизма -->
-                    <div class="table-responsive mb-4">
-                        <table class="table table-hover table-striped">
-                            <caption class="text-center font-italic">Основные направления модернизма</caption>
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Направление</th>
-                                    <th>Период</th>
-                                    <th>Характеристики</th>
-                                    <th>Представители</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Кубизм</strong></td>
-                                    <td>1907-1914</td>
-                                    <td>Разложение формы на геометрические плоскости</td>
-                                    <td>Пикассо, Брак</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Сюрреализм</strong></td>
-                                    <td>1920-е</td>
-                                    <td>Иррациональные образы, подсознательное</td>
-                                    <td>Дали, Магритт</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Абстракционизм</strong></td>
-                                    <td>1910-е</td>
-                                    <td>Отказ от изображения реальности</td>
-                                    <td>Кандинский, Мондриан</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Фовизм</strong></td>
-                                    <td>1905-1908</td>
-                                    <td>Яркие цвета, экспрессивность</td>
-                                    <td>Матисс, Дерен</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Футуризм</strong></td>
-                                    <td>1909-1914</td>
-                                    <td>Динамика, скорость, технология</td>
-                                    <td>Боччони, Балла</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="card border-warning">
-                                <div class="card-header bg-warning text-dark">
-                                    <h5 class="mb-0">Герника</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text"><strong>Художник:</strong> Пабло Пикассо</p>
-                                    <p class="card-text"><strong>Год:</strong> 1937</p>
-                                    <p class="card-text"><strong>Техника:</strong> Масло, холст</p>
-                                    <p class="card-text">Антивоенная картина, изображающая бомбардировку Герники.</p>
-                                    <span class="badge badge-warning">Кубизм</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 mb-4">
-                            <div class="card border-warning">
-                                <div class="card-header bg-warning text-dark">
-                                    <h5 class="mb-0">Постоянство памяти</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text"><strong>Художник:</strong> Сальвадор Дали</p>
-                                    <p class="card-text"><strong>Год:</strong> 1931</p>
-                                    <p class="card-text"><strong>Техника:</strong> Масло, холст</p>
-                                    <p class="card-text">Известна также как "Твердость памяти" или "Мягкие часы".</p>
-                                    <span class="badge badge-warning">Сюрреализм</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Особые коллекции -->
-                <section id="special-collections" class="mb-5">
-                    <h2 class="font-playfair mb-4">Особые коллекции</h2>
-                    
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="card border-info h-100">
-                                <div class="card-body text-center">
-                                    <i class="bi bi-globe-americas text-info display-4 mb-3"></i>
-                                    <h5 class="card-title">Искусство Древнего мира</h5>
-                                    <p class="card-text">Египет, Греция, Рим</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4 mb-3">
-                            <div class="card border-success h-100">
-                                <div class="card-body text-center">
-                                    <i class="bi bi-globe-asia-australia text-success display-4 mb-3"></i>
-                                    <h5 class="card-title">Восточное искусство</h5>
-                                    <p class="card-text">Китай, Япония, Индия</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4 mb-3">
-                            <div class="card border-primary h-100">
-                                <div class="card-body text-center">
-                                    <i class="bi bi-flag text-primary display-4 mb-3"></i>
-                                    <h5 class="card-title">Русское искусство</h5>
-                                    <p class="card-text">Иконы, передвижники, авангард</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-light mt-4">
-                        <i class="bi bi-check-circle-fill text-success mr-2"></i>
-                        Каждое произведение сопровождается <u>подробным описанием</u>, <u>историческим контекстом</u> и <u>техническими данными</u>.
-                    </div>
-                </section>
-
-                <!-- Пагинация Bootstrap -->
-                <nav aria-label="Навигация по коллекциям">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Предыдущая</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Следующая</a>
-                        </li>
-                    </ul>
-                </nav>
+                </div>
             </div>
         </div>
     </main>
@@ -506,7 +599,7 @@
                     <p class="mb-0">&copy; 2024 Виртуальный музей искусства. Все права защищены.</p>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по Bootstrap 4.</p>
+                    <p class="mb-0">Сайт создан в учебных целях для лабораторной работы по JavaScript.</p>
                 </div>
             </div>
         </div>
@@ -515,5 +608,531 @@
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Вид 3: JavaScript в контейнере SCRIPT -->
+    <script>
+        // ===== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ =====
+        let currentSlide = 0;
+        let slideshowInterval = null;
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let lastViewed = localStorage.getItem('lastViewed') || '-';
+        let comparisonList = [];
+        let allArtworks = [
+            {title: "Мона Лиза", artist: "Леонардо да Винчи", year: "1503-1506", style: "painting", period: "renaissance"},
+            {title: "Сикстинская Мадонна", artist: "Рафаэль", year: "1512-1513", style: "painting", period: "renaissance"},
+            {title: "Давид", artist: "Микеланджело", year: "1501-1504", style: "sculpture", period: "renaissance"},
+            {title: "Звёздная ночь", artist: "Винсент Ван Гог", year: "1889", style: "painting", period: "impressionism"},
+            {title: "Впечатление. Восходящее солнце", artist: "Клод Моне", year: "1872", style: "painting", period: "impressionism"},
+            {title: "Танец", artist: "Анри Матисс", year: "1910", style: "painting", period: "modern"},
+            {title: "Герника", artist: "Пабло Пикассо", year: "1937", style: "painting", period: "modern"}
+        ];
+
+        // ===== ИНИЦИАЛИЗАЦИЯ =====
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatistics();
+            updateFavoritesCount();
+            updateLastViewed();
+            
+            // Автозапуск слайд-шоу через 5 секунд
+            setTimeout(() => {
+                startSlideshow();
+            }, 5000);
+            
+            // Инициализация подписки
+            initSubscriptionForm();
+        });
+
+        // ===== СЛАЙД-ШОУ =====
+        function startSlideshow() {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+                document.getElementById('playPauseIcon').className = 'bi bi-play-fill';
+                return;
+            }
+            
+            slideshowInterval = setInterval(nextSlide, 3000);
+            document.getElementById('playPauseIcon').className = 'bi bi-pause-fill';
+        }
+
+        function toggleSlideshow() {
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+                document.getElementById('playPauseIcon').className = 'bi bi-play-fill';
+            } else {
+                startSlideshow();
+            }
+        }
+
+        function nextSlide() {
+            let slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+            updateSlideInfo();
+        }
+
+        function prevSlide() {
+            let slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            updateSlideInfo();
+        }
+
+        function goToSlide(index) {
+            let slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            updateSlideInfo();
+        }
+
+        function updateSlideInfo() {
+            let slide = document.querySelectorAll('.slide')[currentSlide];
+            document.getElementById('slideTitle').textContent = slide.dataset.title;
+            document.getElementById('slideInfo').textContent = slide.dataset.artist + ', ' + slide.dataset.year;
+        }
+
+        // ===== ФИЛЬТРАЦИЯ И ПОИСК =====
+        function filterCollections() {
+            let filter = document.getElementById('collectionFilter').value;
+            let artworks = document.querySelectorAll('.artwork-card');
+            let visibleCount = 0;
+            
+            artworks.forEach(artwork => {
+                if (filter === 'all' || artwork.dataset.period === filter) {
+                    artwork.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    artwork.classList.add('hidden');
+                }
+            });
+            
+            document.getElementById('visibleArtworks').textContent = visibleCount;
+        }
+
+        function filterByStyle() {
+            let filter = document.getElementById('styleFilter').value;
+            let artworks = document.querySelectorAll('.artwork-card');
+            let visibleCount = 0;
+            
+            artworks.forEach(artwork => {
+                if (filter === 'all' || artwork.dataset.style === filter) {
+                    artwork.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    artwork.classList.add('hidden');
+                }
+            });
+            
+            document.getElementById('visibleArtworks').textContent = visibleCount;
+        }
+
+        function resetFilters() {
+            document.getElementById('collectionFilter').value = 'all';
+            document.getElementById('styleFilter').value = 'all';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchResults').classList.add('d-none');
+            
+            let artworks = document.querySelectorAll('.artwork-card');
+            artworks.forEach(artwork => {
+                artwork.classList.remove('hidden');
+            });
+            
+            document.getElementById('visibleArtworks').textContent = artworks.length;
+            showAlert('Фильтры сброшены!', 'success');
+        }
+
+        // ===== ПОИСК =====
+        document.getElementById('searchButton').addEventListener('click', performSearch);
+        document.getElementById('searchInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            let query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) {
+                document.getElementById('searchResults').classList.add('d-none');
+                return;
+            }
+            
+            let results = allArtworks.filter(artwork => 
+                artwork.title.toLowerCase().includes(query) || 
+                artwork.artist.toLowerCase().includes(query)
+            );
+            
+            let resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = '';
+            
+            if (results.length === 0) {
+                resultsList.innerHTML = '<div class="list-group-item">Ничего не найдено</div>';
+            } else {
+                results.forEach(artwork => {
+                    let item = document.createElement('a');
+                    item.href = '#';
+                    item.className = 'list-group-item list-group-item-action';
+                    item.innerHTML = `
+                        <strong>${artwork.title}</strong><br>
+                        <small>${artwork.artist} (${artwork.year})</small>
+                    `;
+                    item.onclick = function(e) {
+                        e.preventDefault();
+                        highlightArtwork(artwork.title);
+                        scrollToArtwork(artwork.title);
+                    };
+                    resultsList.appendChild(item);
+                });
+            }
+            
+            document.getElementById('searchResults').classList.remove('d-none');
+        }
+
+        function highlightArtwork(title) {
+            let artworks = document.querySelectorAll('.artwork-card');
+            artworks.forEach(artwork => {
+                let cardTitle = artwork.querySelector('.card-title').textContent;
+                if (cardTitle === title) {
+                    artwork.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    artwork.classList.add('highlight');
+                    setTimeout(() => {
+                        artwork.classList.remove('highlight');
+                    }, 1500);
+                }
+            });
+        }
+
+        function scrollToArtwork(title) {
+            let element = document.querySelector(`.card-title:contains('${title}')`);
+            if (element) {
+                element.closest('.artwork-card').scrollIntoView({behavior: 'smooth'});
+            }
+        }
+
+        // ===== ФОРМА ПОДПИСКИ =====
+        function initSubscriptionForm() {
+            document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let email = document.getElementById('subEmail');
+                let agreement = document.getElementById('subAgreement');
+                let emailError = document.getElementById('emailError');
+                let agreementError = document.getElementById('agreementError');
+                let isValid = true;
+                
+                // Валидация email
+                if (!email.value || !validateEmail(email.value)) {
+                    email.classList.add('is-invalid');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                    emailError.style.display = 'none';
+                }
+                
+                // Валидация согласия
+                if (!agreement.checked) {
+                    agreementError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    agreementError.style.display = 'none';
+                }
+                
+                if (isValid) {
+                    // Имитация отправки на сервер
+                    setTimeout(() => {
+                        document.getElementById('subscriptionSuccess').classList.remove('d-none');
+                        document.getElementById('subscriptionForm').reset();
+                        showAlert('Вы успешно подписались на новости!', 'success');
+                        
+                        // Сохранение в localStorage
+                        let subscriptions = JSON.parse(localStorage.getItem('subscriptions')) || [];
+                        subscriptions.push({
+                            email: email.value,
+                            name: document.getElementById('subName').value,
+                            date: new Date().toLocaleDateString()
+                        });
+                        localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+                    }, 500);
+                }
+            });
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // ===== ИЗБРАННОЕ =====
+        function toggleFavorite(button, title) {
+            let index = favorites.indexOf(title);
+            
+            if (index === -1) {
+                favorites.push(title);
+                button.innerHTML = '<i class="bi bi-heart-fill"></i>';
+                button.classList.remove('btn-outline-danger');
+                button.classList.add('btn-danger');
+                showAlert(`"${title}" добавлено в избранное`, 'success');
+            } else {
+                favorites.splice(index, 1);
+                button.innerHTML = '<i class="bi bi-heart"></i>';
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-outline-danger');
+                showAlert(`"${title}" удалено из избранного`, 'warning');
+            }
+            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            updateFavoritesCount();
+        }
+
+        function updateFavoritesCount() {
+            document.getElementById('favoritesCount').textContent = favorites.length;
+        }
+
+        // ===== СРАВНЕНИЕ =====
+        function addToCompare(title) {
+            if (comparisonList.length >= 3) {
+                showAlert('Можно сравнивать не более 3 произведений', 'warning');
+                return;
+            }
+            
+            if (!comparisonList.includes(title)) {
+                comparisonList.push(title);
+                updateComparisonList();
+                showAlert(`"${title}" добавлено к сравнению`, 'info');
+            } else {
+                showAlert(`"${title}" уже добавлено к сравнению`, 'info');
+            }
+        }
+
+        function updateComparisonList() {
+            let compareList = document.getElementById('compareList');
+            let compareSection = document.getElementById('compareSection');
+            
+            compareList.innerHTML = '';
+            
+            if (comparisonList.length > 0) {
+                compareSection.classList.remove('d-none');
+                
+                comparisonList.forEach((title, index) => {
+                    let artwork = allArtworks.find(a => a.title === title);
+                    if (artwork) {
+                        let col = document.createElement('div');
+                        col.className = 'col-md-4';
+                        col.innerHTML = `
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6>${artwork.title}</h6>
+                                    <p class="small mb-1"><strong>Художник:</strong> ${artwork.artist}</p>
+                                    <p class="small mb-1"><strong>Год:</strong> ${artwork.year}</p>
+                                    <p class="small mb-1"><strong>Период:</strong> ${artwork.period}</p>
+                                    <p class="small"><strong>Стиль:</strong> ${artwork.style}</p>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="removeFromCompare(${index})">
+                                        <i class="bi bi-x"></i> Удалить
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        compareList.appendChild(col);
+                    }
+                });
+            } else {
+                compareSection.classList.add('d-none');
+            }
+        }
+
+        function removeFromCompare(index) {
+            comparisonList.splice(index, 1);
+            updateComparisonList();
+        }
+
+        function clearComparison() {
+            comparisonList = [];
+            updateComparisonList();
+            showAlert('Список сравнения очищен', 'info');
+        }
+
+        // ===== МОДАЛЬНОЕ ОКНО =====
+        function openArtworkModal(title, artist, year, technique, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalArtist').textContent = artist;
+            document.getElementById('modalYear').textContent = year;
+            document.getElementById('modalTechnique').textContent = technique;
+            document.getElementById('modalDescription').textContent = description;
+            
+            // Обновление изображения (в реальном проекте было бы реальное изображение)
+            document.getElementById('modalImage').src = `https://via.placeholder.com/400x300/4a6491/ffffff?text=${encodeURIComponent(title)}`;
+            
+            $('#artworkModal').modal('show');
+            
+            // Сохраняем последний просмотр
+            localStorage.setItem('lastViewed', title);
+            updateLastViewed();
+        }
+
+        function showDetails(title) {
+            let artwork = allArtworks.find(a => a.title === title);
+            if (artwork) {
+                openArtworkModal(
+                    artwork.title,
+                    artwork.artist,
+                    artwork.year,
+                    artwork.style === 'painting' ? 'Масло, холст' : 'Мрамор',
+                    `Шедевр эпохи ${artwork.period}`
+                );
+            }
+        }
+
+        // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+        function showRandomArtwork() {
+            let artworks = Array.from(document.querySelectorAll('.artwork-card:not(.hidden)'));
+            if (artworks.length === 0) return;
+            
+            let randomIndex = Math.floor(Math.random() * artworks.length);
+            let randomArtwork = artworks[randomIndex];
+            let title = randomArtwork.querySelector('.card-title').textContent;
+            
+            randomArtwork.scrollIntoView({behavior: 'smooth', block: 'center'});
+            randomArtwork.classList.add('highlight');
+            setTimeout(() => {
+                randomArtwork.classList.remove('highlight');
+            }, 1500);
+            
+            showAlert(`Случайный шедевр: "${title}"`, 'info');
+        }
+
+        function sortArtworks(criteria) {
+            let container = document.getElementById('artworksContainer');
+            let artworks = Array.from(container.querySelectorAll('.artwork-card'));
+            
+            artworks.sort((a, b) => {
+                if (criteria === 'title') {
+                    return a.querySelector('.card-title').textContent.localeCompare(
+                        b.querySelector('.card-title').textContent
+                    );
+                } else if (criteria === 'year') {
+                    return parseInt(a.dataset.year) - parseInt(b.dataset.year);
+                }
+                return 0;
+            });
+            
+            container.innerHTML = '';
+            artworks.forEach(artwork => container.appendChild(artwork));
+            showAlert(`Сортировка по ${criteria === 'title' ? 'названию' : 'году'}`, 'info');
+        }
+
+        function toggleArtistsInfo() {
+            let info = document.getElementById('artistsInfo');
+            let icon = document.getElementById('artistToggleIcon');
+            
+            if (info.classList.contains('d-none')) {
+                info.classList.remove('d-none');
+                icon.className = 'bi bi-chevron-up';
+            } else {
+                info.classList.add('d-none');
+                icon.className = 'bi bi-chevron-down';
+            }
+        }
+
+        function showArtistWorks(artistName) {
+            let artworks = allArtworks.filter(a => a.artist === artistName);
+            let message = `${artistName}: ${artworks.length} работ`;
+            showAlert(message, 'info');
+            
+            // Подсветка работ этого художника
+            let cards = document.querySelectorAll('.artwork-card');
+            cards.forEach(card => {
+                let artist = card.querySelector('.card-subtitle').textContent.split(',')[0];
+                if (artist === artistName) {
+                    card.classList.add('highlight');
+                    setTimeout(() => {
+                        card.classList.remove('highlight');
+                    }, 2000);
+                }
+            });
+        }
+
+        function loadMoreArtworks() {
+            // Имитация загрузки новых работ
+            setTimeout(() => {
+                let newArtwork = {
+                    title: "Ночной дозор",
+                    artist: "Рембрандт",
+                    year: "1642",
+                    style: "painting",
+                    period: "renaissance"
+                };
+                
+                allArtworks.push(newArtwork);
+                showAlert('Загружена новая работа: "Ночной дозор"', 'success');
+                updateStatistics();
+            }, 1000);
+        }
+
+        function showStatistics() {
+            let stats = `
+                Всего работ: ${allArtworks.length}
+                В избранном: ${favorites.length}
+                Для сравнения: ${comparisonList.length}
+                Последний просмотр: ${lastViewed}
+            `;
+            alert(stats);
+        }
+
+        function shareArtwork() {
+            let title = document.getElementById('modalTitle').textContent;
+            let artist = document.getElementById('modalArtist').textContent;
+            let shareText = `Посмотрите "${title}" by ${artist} в Виртуальном музее искусства!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else {
+                // Fallback для старых браузеров
+                prompt('Скопируйте ссылку для分享:', shareText + ' ' + window.location.href);
+            }
+        }
+
+        function updateStatistics() {
+            document.getElementById('totalArtworks').textContent = allArtworks.length + '+';
+            let visible = document.querySelectorAll('.artwork-card:not(.hidden)').length;
+            document.getElementById('visibleArtworks').textContent = visible;
+        }
+
+        function updateLastViewed() {
+            let last = localStorage.getItem('lastViewed');
+            if (last) {
+                document.getElementById('lastViewed').textContent = last;
+            }
+        }
+
+        function showAlert(message, type) {
+            // Создаем алерт Bootstrap
+            let alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 100px; right: 20px; z-index: 1050; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="close" onclick="this.parentElement.remove()">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Автоматическое удаление через 3 секунды
+            setTimeout(() => {
+                if (alertDiv.parentElement) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
